@@ -6,21 +6,21 @@
                 <image class='userImg' src='{{headimg}}'></image>
                 <text class='username'>登陆/注册</text>
             </view>
-            <view wx:else="{{token==true}}">
+            <view wx:else="{{token==true}}" bindtap='goEditeInfo'>
                  <image class='userImg' src='{{headimg}}'></image>
                 <text class='username'>{{username}}></text>
             </view>
         </view>
         <view class='tools'>
-            <view>
+            <view bindtap='goCollect'>
                 <image src='../../images/collect.png'></image>
                 <text>收藏</text>
             </view>
-            <view>
+            <view bindtap='goHistory'>
                 <image src='../../images/history.png'></image>
                 <text>历史</text>
             </view>
-            <view>
+            <view bindtap='goCoupon'>
                 <image src='../../images/discount.png'></image>
                 <text>优惠券</text>
             </view>
@@ -51,32 +51,32 @@
         </view>
     </view>
     <view class='otherLists'>
-        <view class='otherList' bindtap='goMyAdress'>
+        <view class='otherList' bindtap='goMyAddress'>
             <image src='../../images/list1.png'></image>
             <text>收货地址</text>
             <image class='right' src='../../images/rightj.png'></image>
         </view>
-        <view class='otherList' bindtap='goMyAdress'>
+        <view class='otherList' bindtap='goMyCount'>
             <image src='../../images/list2.png'></image>
             <text>积分</text>
              <image class='right' src='../../images/rightj.png'></image>
         </view>
-        <view class='otherList' bindtap='goMyAdress'>
+        <view class='otherList' bindtap='goInvite'>
             <image src='../../images/list3.png'></image>
             <text>邀请好友</text>
              <image class='right' src='../../images/rightj.png'></image>
         </view>
-        <view class='otherList' bindtap='goMyAdress'>
+        <view class='otherList' bindtap='goHelp'>
             <image src='../../images/list4.png'></image>
             <text>帮助中心</text>
              <image class='right' src='../../images/rightj.png'></image>
         </view>
-        <view class='otherList' bindtap='goMyAdress'>
+        <view class='otherList' bindtap='goContactUs'>
             <image src='../../images/list5.png'></image>
             <text>联系我们</text>
             <image class='right' src='../../images/rightj.png'></image>
         </view>
-        <view class='otherList' bindtap='goMyAdress'>
+        <view class='otherList' bindtap='goSettings'>
             <image src='../../images/list2.png'></image>
             <text>设置</text>
             <image class='right' src='../../images/rightj.png'></image>

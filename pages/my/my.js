@@ -19,46 +19,63 @@ Page({
     //打开个人信息编辑
     goEditeInfo:function(){
         wx.navigateTo({
-            url: '../editeInfo/editeInfo'
+            url: 'editeInfo/editeInfo'
         })
     },
     //打开收货地址
     goMyAddress:function(){
         wx.navigateTo({
-            url: '../myAddrss/myAddrss'
+            url: 'myAddress/myAddress'
         })
     },
     //打开积分历史
     goMyCount:function(){
         wx.navigateTo({
-            url: '../count/count'
+            url: 'count/count'
         })
     },
     //邀请好友
     goInvite:function(){
         wx.navigateTo({
-            url: '../invite/invite'
+            url: 'invite/invite'
         })
     },
     //帮助中心
     goHelp:function(){
         wx.navigateTo({
-            url: '../help/help'
+            url: 'help/help'
         })
     },
     //联系我们
     goContactUs:function(){
         wx.navigateTo({
-            url: '../contact/contact'
+            url: 'contact/contact'
         })
     },
     //设置
     goSettings:function(){
         wx.navigateTo({
-            url: '../settings/settings'
+            url: 'settings/settings'
         })
     },
-
+    //收藏
+    goCollect:function(){
+        wx.navigateTo({
+            url: 'collect/collect'
+        })
+    },
+    //历史
+    goHistory:function(){
+        wx.navigateTo({
+            url: 'history/history'
+        })
+    },
+    //优惠券
+    goCoupon:function(){
+        wx.navigateTo({
+            url: 'coupon/coupon'
+        })
+    },
     //读取本地存储
     getStorage: function () {
         var data = wx.getStorageSync('userInfo') || {};
