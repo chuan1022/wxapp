@@ -34,7 +34,6 @@ Page({
                     password: this.data.password
                 },
                 success: function (data) {
-                    console.log(data)
                     switch(data.data.errCode){
                         case 0:
                             wx.showModal({
@@ -49,6 +48,9 @@ Page({
                             wx.reLaunch({
                                 url: '../index/index'
                             });
+                            // 个人信息存储到本地
+                            wx.setStorageSync('userInfo',data.data.data);
+                           
                         };
                 }
             });

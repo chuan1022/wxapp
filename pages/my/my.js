@@ -11,7 +11,7 @@ Page({
        username: app.data.username
   },
     goRegiste:function(){
-        wx.reLaunch({
+        wx.navigateTo({
             url: '../login/login'
         })
     },
@@ -21,7 +21,7 @@ Page({
   onLoad: function (options) {
       this.setData({
           token: app.data.token,
-          userImg: app.data.headimg,
+          headimg: app.data.headimg,
           username: app.data.username
       });
   },
@@ -30,7 +30,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    
   },
 
   /**

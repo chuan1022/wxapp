@@ -17,6 +17,7 @@ image{
 .userImg{
     width: 160rpx;
     height: 160rpx;
+    border-radius: 50%;
 }
 .username{
     position: relative;
