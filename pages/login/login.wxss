@@ -1,1 +1,10 @@
 /* pages/login/login.wxss */
+button{
+    margin: 20rpx 0;
+}
+
+#tool text{
+    padding: 10rpx;
+    color: #666;
+    font-size: 35rpx;
+}

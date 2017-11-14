@@ -19,6 +19,11 @@ Page({
             password: e.detail.value
         })
     },
+    goMy:function(){
+        wx.reLaunch({
+            url: '../my/my',
+        })
+    },
     login:function(){
        
         if (!this.data.email && !this.data.password){

@@ -1,11 +1,12 @@
 <!--pages/login/login.wxml-->
 <view class='container'>
-    <text>账号</text>
+    <label>账号</label>
     <input id='email' bindinput='getEmail' placeholder='请输入账号' value='{{email}}'></input>
-    <text>密码</text>
-    <input id='password' bindinput='getPassword' type='text' placeholder='密码' value='{{password}}'></input>
-    <button bindtap='login'>登陆</button>
-    <view>
+    <label>密码</label>
+    <input id='password' bindinput='getPassword' type='password' placeholder='密码' value='{{password}}'></input>
+    <button bindtap='login' type='primary'>登陆</button>
+    <button bindtap='goMy'>取消</button>
+    <view id='tool'>
         <text class='left' bindtap='toRegister'>用户注册</text>
         <text class='right' bindtap='toForgetPassword'>忘记密码</text>
     </view>
