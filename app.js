@@ -21,7 +21,7 @@ App({
     //重复验证
     testRepeat: function (data1, data2) {
         if (data1 == data2) {
-            return true;
+            return true;  
         } else {
             return false;
         }
