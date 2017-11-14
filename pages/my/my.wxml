@@ -1,0 +1,85 @@
+<!--pages/my/my.wxml-->
+<view class='container'>
+    <view id='topBar'>
+        <view class='userInfo'>
+            <view wx:if="{{token==0}}" bindtap='goRegiste'>
+                <image class='userImg' src='{{headimg}}'></image>
+                <text class='username'>登陆/注册</text>
+            </view>
+            <view wx:else="{{token==true}}">
+                 <image class='userImg' src='{{headimg}}'></image>
+                <text class='username'>{{username}}></text>
+            </view>
+        </view>
+        <view class='tools'>
+            <view>
+                <image src='../../images/collect.png'></image>
+                <text>收藏</text>
+            </view>
+            <view>
+                <image src='../../images/history.png'></image>
+                <text>历史</text>
+            </view>
+            <view>
+                <image src='../../images/discount.png'></image>
+                <text>优惠券</text>
+            </view>
+        </view>
+    </view>
+    <view class='orderBox'>
+        <view class='title clearfix'>
+            <text class='left'>全部订单</text>
+            <text class='right'>查看全部 ></text>
+        </view>
+        <view class='orderItems'>
+            <view>
+                <image src='../../images/order1.png'></image>
+                <text>待团购</text>
+            </view>
+            <view>
+                <image src='../../images/order2.png'></image>
+                <text>待发货</text>
+            </view>
+            <view>
+                <image src='../../images/order3.png'></image>
+                <text>待收货</text>
+            </view>
+            <view>
+                <image src='../../images/order4.png'></image>
+                <text>待评价</text>
+            </view>
+        </view>
+    </view>
+    <view class='otherLists'>
+        <view class='otherList'>
+            <image src='../../images/list1.png'></image>
+            <text>收货地址</text>
+            <image class='right' src='../../images/rightj.png'></image>
+        </view>
+        <view class='otherList'>
+            <image src='../../images/list2.png'></image>
+            <text>积分</text>
+             <image class='right' src='../../images/rightj.png'></image>
+        </view>
+        <view class='otherList'>
+            <image src='../../images/list3.png'></image>
+            <text>邀请好友</text>
+             <image class='right' src='../../images/rightj.png'></image>
+        </view>
+        <view class='otherList'>
+            <image src='../../images/list4.png'></image>
+            <text>帮助中心</text>
+             <image class='right' src='../../images/rightj.png'></image>
+        </view>
+        <view class='otherList'>
+            <image src='../../images/list5.png'></image>
+            <text>联系我们</text>
+            <image class='right' src='../../images/rightj.png'></image>
+        </view>
+        <view class='otherList'>
+            <image src='../../images/list2.png'></image>
+            <text>设置</text>
+            <image class='right' src='../../images/rightj.png'></image>
+        </view>
+    </view>
+</view>

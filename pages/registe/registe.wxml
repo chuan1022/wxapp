@@ -1,0 +1,26 @@
+<!--pages/regiister/registe.wxml-->
+<!--pages/login/login.wxml-->
+<view class='container'>
+    <view>
+        <text>Email</text>
+        <input id='email' placeholder='请输入账号' value='{{email}}'></input>
+    </view>
+    <view>
+        <text>密码</text>
+        <input id='password' placeholder='请输入密码' value='{{password}}'></input>
+    </view>
+    <view>
+        <text>确认密码</text>
+        <input id='repassword' placeholder='确认密码' value='{{repassword}}'></input>
+    </view>
+    <view>
+        <text>昵称</text>
+        <input id='nick' placeholder='昵称' value='{{username}}'></input>
+    </view>
+    <view>
+        <text>手机</text>
+        <input id='phone' placeholder='手机号码' value='{{telephone}}'></input>
+    </view>
+    <button bindtap='registe'>登陆</button>
+
+</view>

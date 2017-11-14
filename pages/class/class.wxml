@@ -1,0 +1,32 @@
+<!--pages/class/class.wxml-->
+<view class='container'>
+    <view id='searchBox'>
+        <input placeholder='搜索商品'></input>
+    </view>
+    <view class='productNav'>
+        <scroll-view scroll-y class='leftList left'>
+            <block wx:for="{{navLists}}" wx:for-item="nav">
+                <view >{{nav.note}}</view>
+            </block>
+        </scroll-view>
+        <scroll-view scroll-y class='rigthList right'>
+            <block wx:if="{{navLists}}" wx:for="{{navLists}}" wx:for-item="nav">
+                <view class='listInfoBox'>
+                    <view class='cleafix'>
+                        <text class='title'>{{nav.note}}</text>
+                        <text class='right'>查看更多</text>
+                    </view>
+                    <view class='listInfo'>
+                        <block wx:for="{{nav.children}}" wx:for-item="children">
+                            <view class='children'>
+                                <image  src='{{children.pic}}'></image>
+                                <text>{{children.note}}</text>
+                            </view>
+                        </block>
+                    </view>
+                </view>
+                </block>
+        </scroll-view>
+    </view>
+
+</view>

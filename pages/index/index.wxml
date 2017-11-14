@@ -1,0 +1,48 @@
+<!--index.wxml-->
+<view class='container'>
+
+    <scroll-view id='topNav' scroll-x>
+        <text class='.navList active'>首页</text>
+        <block wx:for="{{navList}}" wx:for-item="nav">
+            <text data-index='{{nav.id}}' bindtap='changeNav' wx:key="nav.id" class='.navList'>{{nav.note}}</text>
+        </block>
+    </scroll-view>
+    <scroll-view scroll-y id='main'>
+        <!-- banner图 -->
+        <swiper indicator-dots="{{indicatorDots}}" autoplay=" {{autoplay}}" interval="{{interval}} " duration="{{duration}} " indicator-color="{{indicatorColor}} " indicator-active-color="{{indicatorActiveColor}} " circular="{{circular}} " class='bannerImg'>
+            <block wx:for="{{bannerImages}}" wx:for-item="banner">
+                <swiper-item>
+                    <image src='{{banner.pic}}' class="slide-image" />
+                </swiper-item>
+            </block>
+        </swiper>
+
+        <!-- 活动栏 -->
+        <view class='activesBox'>
+            <view class='actives'>
+                <block wx:for="{{activeItems}}" wx:for-item="active">
+                    <view class='activeItem'>
+                        <image src='{{active.src}}'></image>
+                        <text>{{active.note}}</text>
+                    </view>
+                </block>
+            </view>
+        </view>
+
+        <!-- 推荐商品 -->
+
+        <view id='recommend'>
+            <block wx:for="{{reonmendPro}}" wx:for-item="pro">
+                <view class='recomItem'>
+                    <image src='{{pro.pic}}'></image>
+                    <view class='proName'>{{pro.note}}</view>
+                    <view class='itemInfo'>
+                        <text class='price'>￥{{pro.price}}</text>
+                        <text class='sellNum'>已售{{pro.sold_sum}}件</text>
+                        <button class='goBuy'>去订购 ></button>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </scroll-view>
+</view>

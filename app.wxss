@@ -1,0 +1,19 @@
+/**app.wxss**/
+/* 公共样式表 */
+text{
+    font-family: "微软雅黑"；   
+}
+.container{
+    background: #eee;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.clearfix::after{
+    content: '';
+    display:block;
+    clear:both;
+}

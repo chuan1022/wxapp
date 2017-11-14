@@ -1,0 +1,98 @@
+/* pages/my/my.wxss */
+/* 顶部兰 */
+#topBar{
+    background: #325595;
+    color: #fff;
+}
+image{
+    width: 40rpx;
+    height: 40rpx;
+}
+
+/* 用户信息 */
+.userInfo{
+    margin: 0 0 0 80rpx;
+    font-size: 35rpx;
+}
+.userImg{
+    width: 160rpx;
+    height: 160rpx;
+}
+.username{
+    position: relative;
+    bottom: 70rpx;
+    left: 70rpx;
+}
+/* 工具栏 */
+.tools{
+    font-size:30rpx; 
+    position: relative;
+    margin-top: 100rpx;
+    background: #264070;
+    padding: 20rpx;
+    display: flex;
+    justify-content: space-around;
+}
+
+.tools view{
+     text-align: center;
+}
+.tools text{
+    margin: 8rpx 0;
+    display: block;
+}
+
+/* 订单 */
+.orderBox{
+    margin-top: 20rpx;
+    background: #fff;
+}
+.orderBox image{
+    width: 50rpx;
+    height: 50rpx;
+}
+.title{
+    padding: 30rpx;
+    border-bottom: 1px solid #eeeeee;
+}
+.title .left{
+    font-size: 35rpx;
+    color: #333333;
+}
+.title .right{
+    font-size: 30rpx;
+    color: #999999;
+}
+.orderItems{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    color:#666666;
+    padding: 40rpx 20rpx;
+}
+.orderItems text{
+     font-size:25rpx;
+    display: block;
+    margin: 10rpx 0;
+}
+
+/* 其他列表 */
+.otherLists{
+    margin-top: 20rpx;
+    background: #fff;
+    line-height: 35rpx;
+}
+.otherLists image{
+    width: 35rpx;
+    height: 35rpx;
+    margin-right: 15rpx;
+}
+.otherLists .right{
+    width: 25rpx
+}
+.otherLists .otherList{
+    padding: 30rpx;
+    color: #666;
+    font-size: 35rpx;
+    border-bottom: 1px solid #eee;
+}
