@@ -9,15 +9,7 @@ App({
     config: {
         host: 'https://qpqlls70.qcloud.la'
     },
-    getStorage: function () {
-        var data = wx.getStorageSync('userInfo')||{};
-        console.log(data);
-        this.setData({
-            token: data.token,
-            heading: data.headimg,
-            username: data.username
-        });
-    },
+  
     //邮箱验证
     testEmail: function (email) {
         var regEmail = new RegExp("^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$");
@@ -35,8 +27,10 @@ App({
             return false;
         }
     },
+    onLoad:function(){
+       
+    },
     onLaunch: function () {
-
         // 展示本地存储能力
         var logs = wx.getStorageSync('logs') || []
         logs.unshift(Date.now())
