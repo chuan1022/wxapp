@@ -33,7 +33,7 @@
 
         <view id='recommend'>
             <block wx:for="{{reonmendPro}}" wx:for-item="pro">
-                <view class='recomItem' bindtap='goProduct'>
+                <view class='recomItem' bindtap='goProduct' id='{{pro.id}}'>
                     <image src='{{pro.pic}}'></image>
                     <view class='proName'>{{pro.note}}</view>
                     <view class='itemInfo'>

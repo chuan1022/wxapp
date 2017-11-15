@@ -13,9 +13,10 @@ Page({
     onLoad:function(){
       this.getHomeData();
     },
-    goProduct:function(){
+    goProduct:function(ev){
+        var id = ev.currentTarget.id;
         wx.navigateTo({
-            url: '../product/product',
+            url: '../product/product?id='+id+'',//页面之间传id
         });
     },
     goFlash:function(){

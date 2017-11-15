@@ -6,6 +6,7 @@ text{
 page{
     font-size: 35rpx;
     color: #333;
+    font-family: "微软雅黑";
 }
 .container{
     background: #eee;
