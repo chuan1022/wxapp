@@ -1,10 +1,43 @@
 /* pages/login/login.wxss */
+page{
+    height: 100%;
+}
+.container{
+    height: 100%;
+    box-sizing: border-box;
+    padding-top: 50rpx;
+}
 button{
     margin: 20rpx 0;
 }
-
-#tool text{
-    padding: 10rpx;
-    color: #666;
+label{
+    box-sizing: border-box;
     font-size: 35rpx;
+    display: inline-block;
+    width: 20%;
+    padding: 10rpx;
+    text-align: center;
+    color: #111;
+}
+.info{
+    border-bottom: 1px solid #ddd;
+}
+input{
+    width: 80%;
+    display: inline-block;
+    font-size: 30rpx;
+    height: 80rpx;
+    line-height: 50rpx;
+    padding: 0;
+    overflow:  inherit;
+}
+
+
+.btns{
+    margin-top: 50rpx;
+}
+#tool text{
+    padding: 0 20rpx;
+    color: #666;
+    font-size: 30rpx;
 }

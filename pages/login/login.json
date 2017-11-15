@@ -2,6 +2,5 @@
     "navigationBarTitleText": "用户登录",
     "backgroundColor": "#000",
     "backgroundTextStyle": "light",
-    "onReachBottomDistance": 50,
-    "enablePullDownRefresh": true
+    "onReachBottomDistance": 50
 }
