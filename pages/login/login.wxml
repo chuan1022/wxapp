@@ -11,11 +11,11 @@
     <view class='btns'>
       <button bindtap='login' type='primary'>登陆</button>
     <button bindtap='goMy'>取消</button>
-    
-    </view>
-  
-    <view id='tool'>
+     <view id='tool'>
         <text class='left' bindtap='toRegister'>用户注册</text>
         <text class='right' bindtap='toForgetPassword'>忘记密码</text>
     </view>
+    </view>
+  
+   
 </view>
