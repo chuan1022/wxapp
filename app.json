@@ -1,8 +1,9 @@
 {
     "pages": [
+        "pages/product/product",
+        "pages/index/index",
         "pages/login/login",
         "pages/my/my",
-        "pages/index/index",
         "pages/class/class",
         "pages/group/group",
         "pages/cart/cart",
@@ -17,7 +18,13 @@
         "pages/my/invite/invite",
         "pages/my/collect/collect",
         "pages/my/coupon/coupon",
-        "pages/my/history/history"
+        "pages/my/history/history",
+        "pages/index/count/count",
+        "pages/index/discount/discount",
+        "pages/index/flash/flash",
+        "pages/index/free/free",
+        "pages/index/noPos/noPos"
+       
     ],
     "window": {
         "backgroundColor": "#aaa",

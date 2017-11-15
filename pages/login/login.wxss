@@ -21,6 +21,8 @@ label{
 }
 .info{
     border-bottom: 1px solid #ddd;
+    width: 90%;
+    margin: 0 auto;
 }
 input{
     width: 80%;

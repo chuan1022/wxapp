@@ -3,6 +3,10 @@
 text{
     font-family: "微软雅黑"；   
 }
+page{
+    font-size: 35rpx;
+    color: #333;
+}
 .container{
     background: #eee;
 }
@@ -16,4 +20,10 @@ text{
     content: '';
     display:block;
     clear:both;
+}
+.col999{
+    color: #999;
+}
+.col666{
+    color: #666;
 }

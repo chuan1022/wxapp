@@ -3,24 +3,48 @@
 const app = getApp();   
 Page({
     data: {
-        indicatorDots: true,    //标示圈
-        autoplay: false,           //自动播放
-        interval: 5000,         //自动播放间隔
-        duration: 1000,        //滑动动画时长
-        indicatorColor:'rgba(0, 0, 0, .3)',
-        indicatorActiveColor:'red',
-        circular:true,
-        activeItems:[{src:'../../images/active/6.png',note:"限时抢购"},
-            { src: '../../images/active/4.png', note: "免邮费" },
-            { src: '../../images/active/1.png', note: "优惠券" },
-            { src: '../../images/active/3.png', note: "免单" },
-            { src: '../../images/active/2.png', note: "积分兑换" }
+        activeItems:[{src:'../../images/active/6.png',note:"限时抢购",tap:'goFlash'},
+            { src: '../../images/active/4.png', note: "免邮费", tap: 'goNoPos'},
+            { src: '../../images/active/1.png', note: "优惠券", tap: 'goDiscount'},
+            { src: '../../images/active/3.png', note: "免单", tap: 'goFree'},
+            { src: '../../images/active/2.png', note: "积分兑换", tap: 'goCount'}
             ]
     },
     onLoad:function(){
       this.getHomeData();
     },
+    goProduct:function(){
+        wx.navigateTo({
+            url: '../product/product',
+        });
+    },
+    goFlash:function(){
+        wx.navigateTo({
+            url: 'flash/flash',
+        });
+    },
+    goNoPos: function () {
+        wx.navigateTo({
+            url: 'noPos/noPos',
+        });
+    },
+    goDiscount: function () {
+        wx.navigateTo({
+            url: 'discount/discount',
+        });
+    },
+    goFree: function () {
+        wx.navigateTo({
+            url: 'free/free',
+        });
+    },
+    goCount: function () {
+        wx.navigateTo({
+            url: 'count/count',
+        });
+    },
     getHomeData:function(){
+        //获取首页数据
         this.getBanners();
         this.getTopNavs();
         this.getRecommendProducts();

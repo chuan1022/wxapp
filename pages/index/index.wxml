@@ -9,7 +9,7 @@
     </scroll-view>
     <scroll-view scroll-y id='main'>
         <!-- banner图 -->
-        <swiper indicator-dots="{{indicatorDots}}" autoplay=" {{autoplay}}" interval="{{interval}} " duration="{{duration}} " indicator-color="{{indicatorColor}} " indicator-active-color="{{indicatorActiveColor}} " circular="{{circular}} " class='bannerImg'>
+        <swiper indicator-dots="true" autoplay="true" interval="5000" duration="1000" indicator-color="rgba(0, 0, 0, .3)" indicator-active-color="red" circular="true" class='bannerImg'>
             <block wx:for="{{bannerImages}}" wx:for-item="banner">
                 <swiper-item>
                     <image src='{{banner.pic}}' class="slide-image" />
@@ -21,7 +21,7 @@
         <view class='activesBox'>
             <view class='actives'>
                 <block wx:for="{{activeItems}}" wx:for-item="active">
-                    <view class='activeItem'>
+                    <view class='activeItem' bindtap='{{active.tap}}'>
                         <image src='{{active.src}}'></image>
                         <text>{{active.note}}</text>
                     </view>
@@ -33,7 +33,7 @@
 
         <view id='recommend'>
             <block wx:for="{{reonmendPro}}" wx:for-item="pro">
-                <view class='recomItem'>
+                <view class='recomItem' bindtap='goProduct'>
                     <image src='{{pro.pic}}'></image>
                     <view class='proName'>{{pro.note}}</view>
                     <view class='itemInfo'>
