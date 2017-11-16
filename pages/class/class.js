@@ -28,7 +28,6 @@ Page({
                 language: 1
             },
             success: function (data) {
-                console.log(data)
                 This.setData({
                     navLists: data.data.data
                 })
@@ -38,7 +37,12 @@ Page({
     onLoad: function () {
         this.getNavs();
     },
-
+    goNav:function(ev){
+        var id = ev.currentTarget.id;
+        wx.navigateTo({
+            url: 'nav/nav?id='+id,
+        })
+    },
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */

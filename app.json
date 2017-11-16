@@ -1,11 +1,11 @@
 {
     "pages": [
+        "pages/class/nav/nav",
+        "pages/class/class",
         "pages/index/index",
         "pages/product/product",
-       
         "pages/login/login",
         "pages/my/my",
-        "pages/class/class",
         "pages/group/group",
         "pages/cart/cart",
         "pages/index/components/product/product",
@@ -25,7 +25,7 @@
         "pages/index/flash/flash",
         "pages/index/free/free",
         "pages/index/noPos/noPos"
-       
+     
     ],
     "window": {
         "backgroundColor": "#aaa",
