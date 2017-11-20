@@ -1,2 +1,60 @@
 <!--pages/my/collect/collect.wxml-->
-<text>pages/my/collect/collect.wxml</text>
+<view class='container'>
+
+    <view class='lists'>
+        <block wx:for="{{lists}}" wx:for-item="product" wx:key="">
+            <view class='list' bindtap='goProduct' data-id='{{product.product_id}}'>
+                <view class='image'>
+                    <image src="{{product.product.pic}}"></image>
+                </view>
+                <view class='info'>
+                    <text class='title'>{{product.product.note}}</text>
+                    <text class='col999'>已售{{product.product.sold_sum}}</text>
+                    <view>
+                        <text class='left price'>￥{{product.product.group_price}}</text>
+                        <view class='right btn'>购买</view>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+    <view class='likeTitle'>
+        <text>猜你喜欢</text>
+    </view>
+    <view id='products'>
+        <view id='productsBox'>
+            <view class='product' id='{{product.id}}' bindtap='goProduct'>
+                <image src='{{product.pic}}'></image>
+                <view>
+                    <text class='title col666'>11111112</text>
+                </view>
+                <view class='clearfix'>
+                    <text class='left'>￥11111</text>
+                    <text class='right col999'>已售222</text>
+                </view>
+            </view>
+            <view class='product' id='{{product.id}}' bindtap='goProduct'>
+                <image src='{{product.pic}}'></image>
+                <view>
+                    <text class='title col666'>11111112</text>
+                </view>
+                <view class='clearfix'>
+                    <text class='left'>￥11111</text>
+                    <text class='right col999'>已售222</text>
+                </view>
+            </view>
+            <block wx:for="{{products}}" wx:for-item="product" wx:key="">
+                <view class='product' id='{{product.id}}' bindtap='goProduct'>
+                    <image src='{{product.pic}}'></image>
+                    <view>
+                        <text class='title col666'>{{product.pro_name}}</text>
+                    </view>
+                    <view class='clearfix'>
+                        <text class='left'>￥{{product.price}}</text>
+                        <text class='right col999'>已售{{product.sold_sum}}</text>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+</view>

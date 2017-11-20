@@ -1,1 +1,47 @@
 /* pages/my/history/history.wxss */
+.container{
+    padding-top: 30rpx;
+}
+.lists{
+    background: #fff;
+    margin-bottom: 30rpx;
+}
+
+.list{
+    padding: 30rpx;
+    border-bottom: 1px solid #efefef;
+}
+.list .image{
+    width: 30%;
+}
+.list .info{
+    width: 65%;
+}
+.list .image,.list .info{
+    display: inline-block;
+}
+.list image{
+    width: 160rpx;
+    height: 160rpx;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+}
+.list .title{
+    display: block;
+    font-size: 30rpx;
+}
+.list .col999{
+    font-size: 25rpx;
+    display: block;
+    margin: 20rpx 0;
+}
+.list .price{
+    color: red;
+    vertical-align: middle;
+}
+.list .btn{
+    padding: 10rpx 30rpx;
+    background: #358;
+    color: #fff;
+    border-radius: 10rpx;
+}

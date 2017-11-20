@@ -84,6 +84,7 @@ image{
     line-height: 35rpx;
 }
 .otherLists image{
+    vertical-align: middle;
     width: 35rpx;
     height: 35rpx;
     margin-right: 15rpx;

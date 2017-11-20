@@ -14,11 +14,11 @@
                 <view class='listInfoBox'>
                     <view class='cleafix'>
                         <text class='title'>{{nav.note}}</text>
-                        <text class='right' id="{{nav.id}}" bindtap='goNav'>查看更多</text>
+                        <text class='right' data-index="-1"  data-pid="{{nav.id}}" bindtap='goNav' data-parentTit="{{nav.note}}" data-title="全部">查看更多</text>
                     </view>
                     <view class='listInfo'>
                         <block wx:for="{{nav.children}}" wx:key=""  wx:for-item="children">
-                            <view class='children' id="{{children.id}}">
+                            <view bindtap='goNav' data-index="{{index}}"  class='children' data-id="{{children.id}}" data-pid="{{children.pid}}" data-title="{{children.note}}" data-parentTit="{{nav.note}}">
                                 <image  src='{{children.pic}}'></image>
                                 <text>{{children.note}}</text>
                             </view>

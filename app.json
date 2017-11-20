@@ -1,11 +1,13 @@
 {
     "pages": [
-        "pages/class/nav/nav",
-        "pages/class/class",
+        
         "pages/index/index",
-        "pages/product/product",
-        "pages/login/login",
+       "pages/login/login",
+        "pages/my/collect/collect",
         "pages/my/my",
+        "pages/class/class",
+        "pages/class/nav/nav",
+        "pages/product/product",      
         "pages/group/group",
         "pages/cart/cart",
         "pages/index/components/product/product",
@@ -17,7 +19,6 @@
         "pages/my/myAddress/myAddress",
         "pages/my/settings/settings",
         "pages/my/invite/invite",
-        "pages/my/collect/collect",
         "pages/my/coupon/coupon",
         "pages/my/history/history",
         "pages/index/count/count",

@@ -38,7 +38,7 @@ page{
     border-bottom: 1rpx solid #ddd;
     border-right: 1rpx solid #ddd;
     text-align: center;
-    padding: 25rpx 0;
+    padding: 40rpx 0;
     font-size: 30rpx;
     color: #666666;
 }

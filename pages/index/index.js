@@ -8,16 +8,20 @@ Page({
             { src: '../../images/active/1.png', note: "优惠券", tap: 'goDiscount'},
             { src: '../../images/active/3.png', note: "免单", tap: 'goFree'},
             { src: '../../images/active/2.png', note: "积分兑换", tap: 'goCount'}
-            ]
+            ],
+        page:1,
+        activeNum:-1
     },
     onLoad:function(){
       this.getHomeData();
     },
+    //跳转二级分类页
+    goNav:function(ev){
+       app.goNav(ev);
+    },
+    //跳转详情页
     goProduct:function(ev){
-        var id = ev.currentTarget.id;
-        wx.navigateTo({
-            url: '../product/product?id='+id+'',//页面之间传id
-        });
+        app.goProduct(ev.currentTarget.id);
     },
     goFlash:function(){
         wx.navigateTo({
@@ -88,7 +92,7 @@ Page({
             success: function (data) {
                 This.setData({
                     reonmendPro: data.data.data.list
-                })
+                });
             }
         });
     },
@@ -97,17 +101,34 @@ Page({
         this.getHomeData();
     },
 
-    //事件处理函数
-    changeNav: function (e) {
-             
-        console.log(e);
-    },
-    getUserInfo: function (e) {
-        console.log(e)
-        app.globalData.userInfo = e.detail.userInfo
+    //切换导航 顶级分类
+    goHome:function(){
         this.setData({
-            userInfo: e.detail.userInfo,
-            hasUserInfo: true
+            page: 1 ,
+            activeNum: -1
+        });
+    },
+
+    //切换首页导航tab
+    changeNav: function (e) {
+        var This=this;
+        this.setData({
+            page:0,
+            navId: e.currentTarget.dataset.id,
+            language:1,
+            start:1,
+            number:10,
+            parentTit: e.currentTarget.dataset.parenttit,
+            activeNum: e.currentTarget.dataset.index          //class变化
+        });
+        wx.request({
+            url: 'http://www.amazonli.com/mijingapp/index.php/ProductType/get_types?id=' + this.data.navId + '&&language=' + this.data.language + '&&start=' + this.data.start + '&&number=' + this.data.number + '',
+            success:function(data){
+                This.setData({
+                    navs:data.data.data.menus,
+                    products: data.data.data.products,
+                });
+            }
         })
     }
 })

@@ -76,23 +76,11 @@ Page({
             url: 'coupon/coupon'
         })
     },
-    //读取本地存储
-    getStorage: function () {
-        var data = wx.getStorageSync('userInfo') || {};
-        app.data.token = data.token;
-        app.data.username = data.username;
-        app.data.headimg = data.headimg;
-    },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.getStorage();
-        this.setData({
-            token: app.data.token,
-            headimg: app.data.headimg,
-            username: app.data.username
-        });
+       
     },
 
     /**

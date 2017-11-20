@@ -54,8 +54,10 @@ Page({
                                 url: '../index/index'
                             });
                             // 个人信息存储到本地
+                            console.log(data.data.data)
                             wx.setStorageSync('userInfo',data.data.data);
-                           
+                            
+
                         };
                 }
             });
