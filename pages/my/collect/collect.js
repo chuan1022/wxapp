@@ -40,8 +40,10 @@ Page({
         })
     },
     //打开商品页面
-    goProduct:function(ev){
-        app.goProduct(ev.currentTarget.id);
+    goProduct: function (ev) {
+        wx.navigateTo({
+            url: '../../product/product?id=' + ev.currentTarget.dataset.id + '',//传id
+        });
     },
 
     /**

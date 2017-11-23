@@ -50,7 +50,7 @@ App({
     //打开产品页
     goProduct:function(id){
         wx.navigateTo({
-            url: '../product/product?id=' + id + '',//传id和token
+            url: '../product/product?id=' + id + '',//传id
         });
     },
     //提交订单
@@ -143,8 +143,22 @@ App({
             }
         })
     },
-    onLoad:function(){
-    
+    //获取积分
+    getIntegral:function(success){
+        wx.request({
+            url: 'http://www.amazonli.com/mijingapp/index.php/User/my_integral',
+            data:{
+                token:this.data.token
+            },
+            success:function(res){
+                success(res);
+            }
+        })
+    },
+
+    //读取本地存储
+    onShow:function(){
+        this.getStorage();//加载app获取本地存储
     },
     //读取本地存储
     getStorage: function () {
@@ -152,34 +166,34 @@ App({
         this.data.token = data.token;
         this.data.username = data.username;
         this.data.headimg = data.headimg;
+        this.data.integral = data.integral;
     },
     onLaunch: function () {
-        this.getStorage();//加载app获取本地存储
         // 登录
-        wx.login({
-            success: res => {
-                // 发送 res.code 到后台换取 openId, sessionKey, unionId
-            }
-        });
-        // 获取用户信息
-        wx.getSetting({
-            success: res => {
-                if (res.authSetting['scope.userInfo']) {
-                    // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-                    wx.getUserInfo({
-                        success: res => {
-                            // 可以将 res 发送给后台解码出 unionId
-                            this.globalData.userInfo = res.userInfo
+        // wx.login({
+        //     success: res => {
+        //         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        //     }
+        // });
+        // // 获取用户信息
+        // wx.getSetting({
+        //     success: res => {
+        //         if (res.authSetting['scope.userInfo']) {
+        //             // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+        //             wx.getUserInfo({
+        //                 success: res => {
+        //                     // 可以将 res 发送给后台解码出 unionId
+        //                     this.globalData.userInfo = res.userInfo
 
-                            // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-                            // 所以此处加入 callback 以防止这种情况
-                            if (this.userInfoReadyCallback) {
-                                this.userInfoReadyCallback(res)
-                            }
-                        }
-                    })
-                }
-            }
-        })
+        //                     // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+        //                     // 所以此处加入 callback 以防止这种情况
+        //                     if (this.userInfoReadyCallback) {
+        //                         this.userInfoReadyCallback(res)
+        //                     }
+        //                 }
+        //             })
+        //         }
+        //     }
+        // })
     }
 })

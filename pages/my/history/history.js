@@ -14,18 +14,29 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.getHistoryList(app.data.token)
+        var This = this;
+        this.getHistoryList(function(res){
+            console.log(res)
+            This.setData({
+                lists:res.data.data.list
+            })
+        })
+    },
+    goProduct:function(ev){
+        wx.navigateTo({
+            url: '../../product/product?id=' + ev.currentTarget.dataset.id + '',//传id
+        });
     },
     //获取浏览历史列表
-    getHistoryList: function (token) {
+    getHistoryList: function (success) {
+        
         wx.request({
             url: 'http://www.amazonli.com/mijingapp/index.php/History/index',
             data: {
-                token: token
+                token: app.data.token
             },
-            success: function (data) {
-                console.log(data)
-
+            success: function (res) {
+                success(res);
             }
         })
     },

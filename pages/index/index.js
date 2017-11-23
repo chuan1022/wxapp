@@ -23,37 +23,44 @@ Page({
     goProduct:function(ev){
         app.goProduct(ev.currentTarget.id);
     },
+    //限时抢购
     goFlash:function(){
         wx.navigateTo({
             url: 'flash/flash',
         });
     },
+    //免邮
     goNoPos: function () {
         wx.navigateTo({
             url: 'noPos/noPos',
         });
     },
+    //优惠券
     goDiscount: function () {
         wx.navigateTo({
             url: 'discount/discount',
         });
     },
+    //免单
     goFree: function () {
         wx.navigateTo({
             url: 'free/free',
         });
     },
+    //积分
     goCount: function () {
         wx.navigateTo({
             url: 'count/count',
         });
     },
+
+    //获取首页数据
     getHomeData:function(){
-        //获取首页数据
         this.getBanners();
         this.getTopNavs();
         this.getRecommendProducts();
     },
+    //获取banner
     getBanners:function(){
         var This=this;
         wx.request({
@@ -68,6 +75,7 @@ Page({
            }
         });
     },
+    //获取顶部导航
     getTopNavs: function () {
         var This = this;
         wx.request({
@@ -82,6 +90,7 @@ Page({
             }
         });
     },
+    //获取推荐商品
     getRecommendProducts: function () {
         var This = this;
         wx.request({

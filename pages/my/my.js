@@ -1,14 +1,36 @@
 // pages/my/my.js
-var app = getApp();
-Page({
+const app = getApp();
 
+Page({
     /**
      * 页面的初始数据
      */
     data: {
         token: app.data.token,
         headimg: app.data.headimg,
-        username: app.data.username
+        username: app.data.username,
+        integral: app.data.integral
+    },
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (options) {
+        //获取积分
+        var This = this;
+        app.getIntegral(function(res){
+            console.log(res);
+            This.setData({
+                integral: res.data.data.integral
+            })
+        });
+       
+        //如果是从订单确认页来的，打开查看订单
+        if(options.seeOrders==1){
+            wx.navigateTo({
+                url: '../orders/orders',
+            });
+        };
+
     },
     //打开登陆页
     goLogin: function () {
@@ -76,12 +98,7 @@ Page({
             url: 'coupon/coupon'
         })
     },
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad: function (options) {
-       
-    },
+    
 
     /**
      * 生命周期函数--监听页面初次渲染完成

@@ -2,29 +2,16 @@
 <view class='container'>
 
     <view class='lists'>
-        <view class='list'>
-            <view class='image'>
-                <image src="../../../images/active/1.png"></image>
-            </view>
-            <view class='info'>
-                <text class='title'>商品名称</text>
-                <text class='col999'>已售20</text>
-                <view class='clearfix'>
-                    <text class='left price'>￥20</text>
-                    <view class='right btn' bindtap='goProduct'>购买</view>
-                </view>
-            </view>
-        </view>
-        <block wx:for="lists" wx:for="product" wx:key="">
-            <view class='list' bindtap='goProduct' data-id='{{product.id}}'>
+        <block wx:for="{{lists}}"  wx:key="">
+            <view class='list' bindtap='goProduct' data-id='{{item.product_id}}'>
                 <view class='image'>
-                    <image src="{{product.pic}}"></image>
+                    <image src="{{item.product.pic}}"></image>
                 </view>
                 <view class='info'>
-                    <text class='title'>{{product.note}}</text>
-                    <text class='col999'>已售{{product.sold_count}}</text>
+                    <text class='title'>{{item.product.note}}</text>
+                    <text class='col999'>已售{{item.product.sold_sum}}</text>
                     <view>
-                        <text class='left price'>￥{{product.group_price}}</text>
+                        <text class='left price'>￥{{item.product.group_price}}</text>
                         <view class='right btn'>购买</view>
                     </view>
                 </view>

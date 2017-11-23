@@ -58,7 +58,7 @@
         </view>
         <view class='otherList' bindtap='goMyCount'>
             <image src='../../images/list2.png'></image>
-            <text>积分</text>
+            <text>积分</text><text style='margin-left:40rpx'>{{integral}}</text>
              <image class='right' src='../../images/rightj.png'></image>
         </view>
         <view class='otherList' bindtap='goInvite'>

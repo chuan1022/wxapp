@@ -12,10 +12,10 @@
     border-bottom: 1px solid #efefef;
 }
 .list .image{
-    width: 30%;
+    width: 28%;
 }
 .list .info{
-    width: 65%;
+    width: 70%;
 }
 .list .image,.list .info{
     display: inline-block;
@@ -28,12 +28,15 @@
 }
 .list .title{
     display: block;
-    font-size: 30rpx;
+    max-height: 60rpx;
+    overflow: hidden;
+    font-size: 25rpx;
+    line-height: 30rpx;
 }
 .list .col999{
     font-size: 25rpx;
     display: block;
-    margin: 20rpx 0;
+    margin: 10rpx 0;
 }
 .list .price{
     color: red;
