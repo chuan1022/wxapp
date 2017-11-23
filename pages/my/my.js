@@ -55,20 +55,20 @@ Page({
     //设置
     goSettings:function(){
         wx.navigateTo({
-            url: 'settings/settings'
-        })
+            url: '../login/login'
+        });
     },
     //收藏
     goCollect:function(){
         wx.navigateTo({
             url: 'collect/collect'
-        })
+        });
     },
     //历史
     goHistory:function(){
         wx.navigateTo({
             url: 'history/history'
-        })
+        });
     },
     //优惠券
     goCoupon:function(){

@@ -27,6 +27,7 @@ App({
             })
         }
     },
+
     //重复验证
     testRepeat: function (data1, data2) {
         if (data1 == data2) {
@@ -52,6 +53,30 @@ App({
             url: '../product/product?id=' + id + '',//传id和token
         });
     },
+    //提交订单
+    submitOrder:function(options,success){
+        wx.request({
+            url: 'http://www.amazonli.com/mijingapp/index.php/Order/add',
+            data:options,
+            success:function(res){
+                success(res);
+            }
+            
+        })
+    },
+    //获取后台验证码
+    getAdminCode:function(phone,success){
+        wx.request({
+            url: 'http://www.amazonli.com/mijingapp/index.php/Verify/phone_code',
+            data:{
+                phone:phone
+            },
+            success:function(res){
+                success(res);
+            }
+        })
+
+    },
     //获取猜你喜欢
     getYouLikes:function(){
         wx.request({
@@ -61,6 +86,18 @@ App({
                 language:this.data.language,
                 start:0,
                 number:10
+            }
+        })
+    },
+    //获取用户地址
+    getAddress:function(success){
+        wx.request({
+            url: 'http://www.amazonli.com/mijingapp/index.php/Address/index',
+            data:{
+                token:this.data.token,
+            },
+            success: function (res) {
+                success(res);
             }
         })
     },

@@ -4,15 +4,19 @@ text{
     font-family: "微软雅黑"；   
 }
 page{
-    font-size: 35rpx;
+    font-size: 30rpx;
     color: #333;
     font-family: "微软雅黑";
+    background: #eee;
 }
 .container{
     background: #eee;
 }
 .left{
     float: left;
+}
+.red{
+    color: red;
 }
 .right{
     float: right;
@@ -63,4 +67,43 @@ page{
 #products .right{
     font-size: 25rpx;
     line-height: 40rpx;
+}
+/* 遮罩层 */
+#screenShadow{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: #000;
+    opacity: 0.6;
+    overflow: hidden;
+    z-index: 2000;
+}
+
+/* 横向输入框 */
+.rowInput{
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    margin: 0 auto;
+    padding:0 30rpx;
+}
+.rowInput input{
+    min-width: 75%;
+    max-width: 80%;
+    display: inline-block;
+    font-size: 30rpx;
+    height: 80rpx;
+    line-height: 50rpx;
+    padding: 0;
+    overflow:  inherit;
+}
+.rowInput label{
+    box-sizing: border-box;
+    font-size: 30rpx;
+    display: inline-block;
+    min-width: 20%;
+    padding: 10rpx;
+    text-align: center;
+    color: #555;
 }

@@ -10,29 +10,6 @@ page{
     padding-top: 50rpx;
 }
 
-label{
-    box-sizing: border-box;
-    font-size: 35rpx;
-    display: inline-block;
-    width: 20%;
-    padding: 10rpx;
-    text-align: center;
-    color: #111;
-}
-.info{
-    border-bottom: 1px solid #ddd;
-    width: 90%;
-    margin: 0 auto;
-}
-input{
-    width: 80%;
-    display: inline-block;
-    font-size: 30rpx;
-    height: 80rpx;
-    line-height: 50rpx;
-    padding: 0;
-    overflow:  inherit;
-}
 
 
 /* 按钮组  */

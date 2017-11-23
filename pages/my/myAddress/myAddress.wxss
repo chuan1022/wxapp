@@ -1,1 +1,35 @@
 /* pages/my/myAddress/myAddress.wxss */
+page{
+    height: 100%;
+}
+.container{
+    height: 100%;
+    color: #555;
+    font-size: 30rpx;
+}
+#lists{
+    height: 93%;
+     box-sizing: border-box;
+}
+#lists .list{
+    padding: 20rpx 30rpx 0;
+    margin-bottom: 20rpx;
+    background: #fff;
+    line-height: 70rpx;
+}
+#add{
+    height: 7%;
+    background: #358;
+    color: #fff;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 20rpx 0;
+}
+#lists .tools{
+  border-top: 3rpx solid #ddd;
+}
+#lists .tools text{
+    display: inline-block;
+    margin: 0 30rpx;
+   
+}

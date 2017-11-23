@@ -1,13 +1,12 @@
 {
     "pages": [
-        
         "pages/index/index",
-       "pages/login/login",
+        "pages/login/login",
         "pages/my/collect/collect",
         "pages/my/my",
         "pages/class/class",
         "pages/class/nav/nav",
-        "pages/product/product",      
+        "pages/product/product",
         "pages/group/group",
         "pages/cart/cart",
         "pages/index/components/product/product",
@@ -25,8 +24,11 @@
         "pages/index/discount/discount",
         "pages/index/flash/flash",
         "pages/index/free/free",
-        "pages/index/noPos/noPos"
-     
+        "pages/index/noPos/noPos",
+        "pages/product/ensurOrder/ensureOrder",
+        "pages/my/myAddress/add/add",
+        "pages/my/myAddress/edite/edite",
+        "pages/orders/orders"
     ],
     "window": {
         "backgroundColor": "#aaa",

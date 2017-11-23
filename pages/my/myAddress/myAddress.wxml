@@ -1,2 +1,25 @@
 <!--pages/my/myAddress/myAddress.wxml-->
-<text>pages/my/myAddress/myAddress.wxml</text>
+
+<view class="container">
+    <scroll-view id='lists' scroll-y>
+        <block wx:for="{{lists}}" wx:for-item="list" wx:key="">
+            <view class='list' bindtap="changeAddress" data-people="{{list.people}}" data-address="{{list.address}}" data-telephone="{{list.telephone}}" data-id="{{list.id}}" data-default="{{list.is_default}}">
+                <view class='clearfix'>
+                    <text class='left'>{{list.people}}</text>
+                    <text class='right'>{{list.telephone}}</text>
+                </view>
+                <view>{{list.address}}</view>
+                <view class='tools'>
+                    <label>
+                        <checkbox class='left' name="address" checked="{{list.is_default==1?true:false}}" bindchange="setDefaultAddress" name="address" value="11" color='blue'/>默认
+                    </label>
+                    <text class='right' data-id="{{list.id}}" bindtap='delteAddress'>删除</text>
+                    <text class='right' bindtap='editAddress' data-telephone="{{list.telephone}}" data-address="{{list.address}}" data-people="{{list.people}}" data-id="{{list.id}}">编辑</text>
+                </view>
+            </view>
+        </block>
+    </scroll-view>
+    <view id='add' bindtap='addAddress'>
+        + 添加新地址
+    </view>
+</view>
