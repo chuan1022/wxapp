@@ -20,9 +20,7 @@ page{
     box-sizing: border-box;
     align-items: center;  
 }
-.item checkbox{
-    transform: scale(0.7)
-}
+
 .item image{
     width: 150rpx;
     min-width: 150rpx;

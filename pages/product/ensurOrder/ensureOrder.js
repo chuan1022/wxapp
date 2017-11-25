@@ -7,17 +7,17 @@ Page({
      */
     data: {
         orderFreight: 0,
-        totalPrice: 0,
+        goodsPrice:0,   //商品金额
+        totalPrice: 0,  //合计支付额
         disCount:0,     //优惠券金额
         disCountId:0,     //优惠券ID
-        addressId:0,
+        addressId:0
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        console.log(options);
         var This=this;
         app.getAddress(function (res) {
             var list = res.data.data.list;
@@ -30,30 +30,32 @@ Page({
                 }
             };
         });
+    
         this.setData({
-            goodsId: options.goodsId,
-            goodsImg: options.goodsImg,
-            goodsNote: options.goodsNote,
-            goodsNum: options.goodsNum,
+            products: JSON.parse(options.products),
             goodsPrice: options.goodsPrice,
-            goodsName: options.goodsName,
             orderType: options.orderType,
-            groupId: options.groupId||0,
             goodsInfo: options.goodsInfo
         });
+        console.log(this.data)
         this.getTotalPrice();
     },
-    changeAddress:function(){
-        //跳转到编辑地址
-        wx.navigateTo({
-            url: '../../my/myAddress/myAddress?changeAddress=1'
-        });
-    },
+    
     // 计算总价
     getTotalPrice:function(){
         this.setData({
             totalPrice: Number(Number(this.data.goodsNum * this.data.goodsPrice) - this.data.disCount )+ Number(this.data.orderFreight)
-        })
+        });
+    },
+    //计算商品额和件数
+    getGoodsPrice:function(){
+
+    },
+    changeAddress: function () {
+        //跳转到编辑地址
+        wx.navigateTo({
+            url: '../../my/myAddress/myAddress?changeAddress=1'
+        });
     },
     //获取手机号
     getPhone:function(ev){

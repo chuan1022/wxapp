@@ -127,12 +127,12 @@
     <!-- 购买框 -->
     <view class='col666' animation="{{animationData}}" id="buyBox" wx:if="{{isShowShadow}}">
         <view class='title'>
-            <image src="{{isSelectGoods?goodsImg:detail.pic}}"></image>
+            <image src="{{isSelectGoods?goods.pic:detail.pic}}"></image>
             <view class='info'>
 
                 <!-- 已选货物时。选择货物价格；没选货物时判断显示团购价还是单独购买价  -->
-                <view class='price'>{{isSelectGoods?goodsPrice:(isGroupBuy?detail.group_price:detail.price)}}</view>
-                <view>已选择：{{goodsNote}}</view>
+                <view class='price'>{{isGroupBuy?(isSelectGoods?goods.group_price:detail.group_price):(isSelectGoods?goods.price:detail.price)}}</view>
+                <view>已选择：{{goods.attribute}}</view>
             </view>
             <view class='close' bindtap='hiddeModal'>x</view>
         </view>
@@ -142,7 +142,7 @@
             </view>
             <view class='type'>
                 <block wx:for="{{detail.goods}}" wx:key="">
-                    <text bindtap="selectGoods" class="{{goodsId==item.id?'active':''}}" data-goodsnote="{{item.attribute}}" data-goodsimg="{{item.pic}}" data-productid="{{detail.id}}" data-goodsid="{{item.id}}" data-goodsprice="{{isGroupBuy?item.group_price:item.price}}">{{item.attribute}}</text>
+                    <text bindtap="selectGoods" data-index="{{index}}" class="{{goods.id==item.id?'active':''}}" >{{item.attribute}}</text>
                 </block>
             </view>
         </view>

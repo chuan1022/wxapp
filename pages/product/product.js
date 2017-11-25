@@ -13,10 +13,6 @@ Page({
         isGroupBuy: true,
         //已选货物属性
         goodsImg: "../../images/bg.png",
-        goodsId: '',
-        goodsPrice: '',
-        goodsNote: '',
-        goodsNum: 1,
         groupId: 0,      //已选拼单id
         ordertype: '',   //下单类型
         isSubDisable: true,
@@ -24,13 +20,37 @@ Page({
         isSelectGoods: false        //判断是不是选了货物，只要选了一次货物就变为true
     },
 
+    //跳转到订单页面
+    goEnsureOrder: function () {
+        //当选了货物时，可以跳转到订单确认页，否则提醒选择货物
+        if (this.data.isSelectGoods) {
+            var goods = this.data.goods;
+            goods.count = this.data.goodsNum;     //加入数量
+            goods.price = this.data.goodsPrice;     //加入价格
+            goods.note = this.data.detail.note; //加入商品名
+            var arry = [];        //作为数组传到订单页
+            arry.push(goods);
+            var goodsInfo = goods.goodsId + ':' + goods.num;//拼goodsInfo
+            var goodsPrice = (goods.count * goods.price).toFixed(2);//计算goodsPrice
+
+            //传入货物信息
+            wx.navigateTo({
+                url: 'ensurOrder/ensureOrder?products=' + JSON.stringify(arry) + '&&orderType=' + this.data.ordertype + '&&groupId=' + this.data.groupId + '&&goodsInfo=' + goodsInfo + '&&goodsPrice=' + goodsPrice + '',
+            })
+        } else {
+            wx.showToast({
+                title: '请选择货物',
+                image: '../../images/tip.png',
+            })
+        }
+    },
     //点击单独购买--弹出单独购买框
     aloneBuy: function () {
         app.checkToken();
         this.setData({
             isGroupBuy: false,
-            isSelectGoods: false,
-            gooodsPrice: this.data.detail.price,
+            // isSelectGoods: false,
+            goodsPrice: this.data.detail.price,
             goodsImg: "../../images/bg.png",
             goodsId: '',
             goodsNote: '',
@@ -54,7 +74,7 @@ Page({
         app.checkToken();
         this.setData({
             isGroupBuy: true,
-            isSelectGoods: false,
+            // isSelectGoods: false,
             goodsPrice: this.data.detail.group_price,
             goodsImg: "../../images/bg.png",
             goodsNote: '',
@@ -104,21 +124,6 @@ Page({
         this.goEnsureOrder();
     },
 
-    //跳转到订单页面
-    goEnsureOrder: function () {
-        //当选了货物时，可以跳转到订单确认页，否则提醒选择货物
-        if (this.data.isSelectGoods) {
-            //传入货物信息
-            wx.navigateTo({
-                url: 'ensurOrder/ensureOrder?goodsImg=' + this.data.goodsImg + '&&goodsId=' + this.data.goodsId + '&&goodsNote=' + this.data.goodsNote + '&&goodsNum=' + this.data.goodsNum + '&&goodsPrice=' + this.data.goodsPrice + '&&goodsName=' + this.data.detail.note + '&&orderType=' + this.data.ordertype + '&&groupId=' + this.data.groupId + '&&goodsInfo=' + this.data.goodsId + ':' + this.data.goodsNum+'',
-            })
-        } else {
-            wx.showToast({
-                title: '请选择货物',
-                image: '../../images/tip.png',
-            })
-        }
-    },
 
 
 
@@ -171,10 +176,7 @@ Page({
     //选择购买货物
     selectGoods: function (ev) {
         this.setData({
-            goodsImg: ev.currentTarget.dataset.goodsimg,
-            goodsId: ev.currentTarget.dataset.goodsid,
-            goodsNote: ev.currentTarget.dataset.goodsnote,
-            goodsPrice: ev.currentTarget.dataset.goodsprice,
+            goods: this.data.detail.goods[ev.currentTarget.dataset.index],
             isSelectGoods: true
         });
     },

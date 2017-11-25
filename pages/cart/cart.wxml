@@ -16,11 +16,11 @@
         </view>
     </view> -->
     <scroll-view scroll-y class='products'>
+
         <block wx:for="{{products}}" wx:key="">
             <view class='item'>
-                 <checkbox-group bindchange='checked'  data-id="{{item.goods_id}}"> 
-                    <checkbox></checkbox>
-                 </checkbox-group> 
+                <icon bindtap='change' wx:if="{{item.isSelect}}" data-index="{{index}}" class='check' type='success_circle'  size="20"></icon>
+                <icon bindtap='change' wx:else data-index="{{index}}" class='check' type='circle' size="20"></icon>
                 <image src="{{item.goods.pic}}" bindtap='goProduct' data-id="{{item.product.id}}"></image>
                 <view class='itemInfo'>
                     <view class='title' bindtap='goProduct' data-id="{{item.product.id}}">{{item.product.note}}</view>
@@ -28,25 +28,26 @@
                     <view class='clearfix'>
                         <text class='red'>￥{{item.goods.price}}</text>
                         <view class="right">
-                            <count data-num="{{item.count}}" data-goodsid="{{item.goods_id}}"></count>
+                            <count data-num="{{item.count}}" data-index="{{index}}" data-goodsid="{{item.goods_id}}"></count>
                         </view>
                     </view>
                 </view>
             </view>
         </block>
+
     </scroll-view>
     <view id='bottom'>
         <view class='ckeckAll left'>
             <view>
-                <checkbox>全选</checkbox>
+                <icon bindtap='changeAll' wx:if="{{isSelectAll}}"  type='success_circle'  size="30"></icon>
+                <icon bindtap='changeAll' wx:else type='circle' size="30"></icon>
             </view>
-
         </view>
-        <view class='right' id='submit'>
+        <view bindtap='goEnsureOrder' class='right' id='submit'>
             <view>去结算</view>
         </view>
         <view class='total right'>
-            <text class='red'>合计：￥1111</text>
+            <text class='red'>合计：￥{{totalPrice}}</text>
             <text class='col999'>(不含运费)</text>
         </view>
     </view>

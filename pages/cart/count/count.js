@@ -4,38 +4,31 @@ Component({
      * 组件的属性列表
      */
     properties: {
-        
         num:{
             type:Number,
             value:0,
             observer:function(newVal,old,ev){
                 var pages= getCurrentPages();
-                // pages[pages.length-1].setData({
-                //     obj[this.goodsid]:newVal
-                // });
-                pages[pages.length - 1].data.obj[this.data.goodsid] = newVal;
-                console.log(pages[pages.length - 1].data)
+                pages[pages.length - 1].data.products[this.data.index].count= newVal;
+
+                pages[pages.length - 1].setData({
+                    products: pages[pages.length - 1].data.products
+                });
+                pages[pages.length - 1].getTotalPrice();   //重新计算价格  问题：初次渲染执行五次
             }
-        },
-        goodsid: {
-            type: Number,
-            value: 0
-        },
+        }
     },
     //在组件实例进入页面节点树时执行
-    attached:function(){
+    ready:function(){
         this.setData({
             num: this.dataset.num,
-            goodsid: this.dataset.goodsid
+            index:this.dataset.index
         });
     },
-    /**
-     * 组件的初始数据
-     */
+    /** 组件的初始数据*/
     data: {
-        isSubAble: false,      //是否可见  
-        isAddAble: true,    //是否可加
-   
+        isSubAble: true,      //是否可见减 
+        isAddAble: true,    //是否可加  
         minNum: 1,           //最小值
         maxNum: 999999      //最大值      微信解析infinity为null?
     },

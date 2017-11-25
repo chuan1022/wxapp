@@ -9,14 +9,17 @@
             </view>
             <view class='addressName'>{{address.address}}</view>
         </view>
-        <view class='goodsInfo item'>
-            <image src='{{goodsImg}}'></image>
-            <view class='info'>
-                <text class='text1'>{{goodsName}}</text>
-                <text class='text2 col999'>{{goodsNote}}</text>
-                <text class='text3 red'>￥{{goodsPrice}}</text>
+        <block wx:for="{{products}}" wx:key="">
+            <view class='goodsInfo item'>
+                <image src='{{item.pic}}'></image>
+                <view class='info'>
+                    <text class='text1'>{{item.note}}</text>
+                    <text class='text2 col999'>{{item.attribute}}x{{item.count}}</text>
+                    <text class='text3 red'>￥{{item.price}}</text>
+                </view>
             </view>
-        </view>
+        </block>
+        
         <view class='goodsPrice item'>
             <view class='clearfix'>
                 <text class='left'>数量</text>
