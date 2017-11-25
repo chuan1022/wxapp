@@ -1,2 +1,11 @@
 <!--pages/my/contact/contact.wxml-->
-<text>pages/my/contact/contact.wxml</text>
+<view class='container'>
+    <image src='../../../images/logo.png'></image>
+    <view>ourArb  v1.0</view>
+    <view class='content'>
+        <block wx:for="{{list}}" wx:key="">
+            <view>{{item.title}}:{{item.value}}</view>
+        </block>
+    </view>
+    <view class='copy'>河南米鲸实业集团有限公司</view>
+</view> 

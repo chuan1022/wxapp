@@ -1,1 +1,17 @@
 /* pages/my/help/help.wxss */
+.contend{
+    margin-top: 20rpx;
+    font-size: 30rpx;
+    color: #999;
+    background: #fff;
+}
+.list{
+    padding: 30rpx;
+    border-bottom: 1px solid #eee;
+}
+.answer{
+    padding: 20rpx 50rpx;
+    font-size: 25rpx;
+    border-bottom: 1px solid #eee;
+    line-height: 40rpx;
+}

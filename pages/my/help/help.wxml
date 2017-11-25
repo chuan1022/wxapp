@@ -1,2 +1,14 @@
 <!--pages/my/help/help.wxml-->
-<text>pages/my/help/help.wxml</text>
+<view class='container'>
+    <view class='contend'>
+        <block wx:for="{{list}}" wx:key="" >
+            <view class='clearfix list' data-id="{{item.id}}" bindtap='getAnswer'>
+                <text class='left'>{{item.question}}</text>
+                <text wx:if="{{item.id==showId}}" class='right'></text>
+                <text wx:else class='right'>></text>
+            </view>
+            <view class='answer' wx:if="{{item.id==showId}}"> {{item.answer}} </view>
+        </block>
+    </view>
+
+</view>
