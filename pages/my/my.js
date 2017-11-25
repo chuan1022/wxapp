@@ -18,13 +18,12 @@ Page({
         //获取积分
         var This = this;
         app.getIntegral(function(res){
-            console.log(res);
             This.setData({
                 integral: res.data.data.integral
             })
         });
        
-        //如果是从订单确认页来的，打开查看订单
+        //如果是从订单确认页来的，在打开查看订单
         if(options.seeOrders==1){
             wx.navigateTo({
                 url: '../orders/orders',

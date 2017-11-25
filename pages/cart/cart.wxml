@@ -1,2 +1,53 @@
 <!--pages/cart/cart.wxml-->
+<view class='container'>
+    <!-- <view class='item'>
+        <checkbox></checkbox>
+        <image src="../../images/userImg.png"></image>
+        <view class='itemInfo'>
+            <view class='title'>titletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitletitle</view>
+            <view>sdd</view>
+            <view class='clearfix'>
+                <text class='red'>￥20.00</text>
+                <view class="right">
+                    <count></count>
+                </view>
 
+            </view>
+        </view>
+    </view> -->
+    <scroll-view scroll-y class='products'>
+        <block wx:for="{{products}}" wx:key="">
+            <view class='item'>
+                 <checkbox-group bindchange='checked'  data-id="{{item.goods_id}}"> 
+                    <checkbox></checkbox>
+                 </checkbox-group> 
+                <image src="{{item.goods.pic}}" bindtap='goProduct' data-id="{{item.product.id}}"></image>
+                <view class='itemInfo'>
+                    <view class='title' bindtap='goProduct' data-id="{{item.product.id}}">{{item.product.note}}</view>
+                    <view class='col999'>{{item.goods.attribute}}</view>
+                    <view class='clearfix'>
+                        <text class='red'>￥{{item.goods.price}}</text>
+                        <view class="right">
+                            <count data-num="{{item.count}}" data-goodsid="{{item.goods_id}}"></count>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </scroll-view>
+    <view id='bottom'>
+        <view class='ckeckAll left'>
+            <view>
+                <checkbox>全选</checkbox>
+            </view>
+
+        </view>
+        <view class='right' id='submit'>
+            <view>去结算</view>
+        </view>
+        <view class='total right'>
+            <text class='red'>合计：￥1111</text>
+            <text class='col999'>(不含运费)</text>
+        </view>
+    </view>
+</view>

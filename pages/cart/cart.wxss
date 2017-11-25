@@ -1,1 +1,93 @@
 /* pages/cart/cart.wxss */
+page{
+    height: 100%;
+}
+.container{
+    position: relative;
+    height: 100%
+}
+.products{
+    height: 90%;
+}
+.item{
+    background: #fff;
+    padding: 30rpx;
+    display: flex;
+    margin-bottom: 20rpx;
+    /* flex布局，水平轴居中 */
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    box-sizing: border-box;
+    align-items: center;  
+}
+.item checkbox{
+    transform: scale(0.7)
+}
+.item image{
+    width: 150rpx;
+    min-width: 150rpx;
+    height: 150rpx;
+    border: 1px solid #ddd;
+    margin: 0 20rpx;
+}
+.item .itemInfo{
+    height: 150rpx;
+    /* 宽度给100%会铺满 */
+    width: 100%;    
+}
+.item .red{
+    line-height: 50rpx;
+}
+.item .col999{
+    font-size: 25rpx;
+}
+.item .itemInfo .title{
+
+    height: 80rpx;
+    line-height: 40rpx;
+    font-size: 30rpx;
+    /* 多行省略号 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+    -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+    -webkit-line-clamp: 2; /** 显示的行数 **/
+}
+
+/* 底部结算 */
+#bottom{
+    box-sizing: border-box;
+    border-top: 1px solid #ddd;
+    height: 10%;
+    background: #fff;
+    width: 100%;
+}
+#bottom .col999{
+    font-size: 25rpx;
+}
+#bottom .total text{
+    display: block; 
+    padding: 0 30rpx;
+    line-height: 50rpx;
+}
+.ckeckAll{
+    margin-right: 100rpx;
+    height: 100%;
+    padding-left: 30rpx;
+}
+#submit view,.ckeckAll view{
+   height: 40rpx;
+   position: relative;
+   top: 50%;
+   margin-top: -20rpx;
+}
+#submit{
+    width: 200rpx;
+    height: 100%;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    color: #fff;
+    background: #358;
+}
