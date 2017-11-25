@@ -1,0 +1,16 @@
+<!--pages/my/myAddress/add/add.wxml-->
+
+<view class='container'>
+    <view class='rowInput'>
+        <label>收货人</label>
+        <input bindinput='getPeople' type='text' name="people" value='{{people}}'></input>
+    </view>
+    <view class='rowInput'>
+        <label>联系电话</label>
+        <input bindinput='getPhone' name="telephone" type='number' value='{{telephone}}'></input>
+    </view>
+    <view class='rowInput'>
+        <textarea placeholder='输入详细地址'  bindinput='getAddress' name="address" value='{{address}}'></textarea>
+    </view>
+    <view class='add' bindtap='editeAddress'>保存</view>
+</view>

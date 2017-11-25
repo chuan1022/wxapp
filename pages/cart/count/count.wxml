@@ -1,0 +1,6 @@
+<!--pages/cart/count/count.wxml-->
+<view class='numbers'>
+    <view class="sub {{isSubAble?'':'disabled'}}" catchtap='sub'>-</view>
+    <view class='number' data-goodsid="{{goodsid}}">{{}}{{num}}</view>
+    <view class="add {{isAddAble?'':'disabled'}}" catchtap='add'>+</view>
+</view>

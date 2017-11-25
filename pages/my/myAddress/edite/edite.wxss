@@ -1,0 +1,22 @@
+/* pages/my/myAddress/add/add.wxss */
+page{
+    min-height: 100%;
+}
+.container{
+    min-height: 100%;
+    
+}
+
+.add{
+    height: 100rpx;
+    position: fixed;
+    bottom: 0;
+    background: #358;
+    text-align: center;
+    color: #fff;
+    width: 100%;
+    line-height: 100rpx;
+}
+textarea{
+    padding: 30rpx;
+}

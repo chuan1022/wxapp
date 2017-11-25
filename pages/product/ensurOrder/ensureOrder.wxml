@@ -1,0 +1,58 @@
+<!--pages/product/ensurOrder/ensureOrder.wxml-->
+<view class='container'>
+    <scroll-view scroll-y id='scrollView'>
+        <view class='address item' bindtap="changeAddress" data-id="{{addressId}}">
+            <view class='addressInfo clearfix' >
+                <text>{{address.people}}</text>
+                <text>{{address.telephone}}</text>
+                <text class='right'>></text>
+            </view>
+            <view class='addressName'>{{address.address}}</view>
+        </view>
+        <view class='goodsInfo item'>
+            <image src='{{goodsImg}}'></image>
+            <view class='info'>
+                <text class='text1'>{{goodsName}}</text>
+                <text class='text2 col999'>{{goodsNote}}</text>
+                <text class='text3 red'>￥{{goodsPrice}}</text>
+            </view>
+        </view>
+        <view class='goodsPrice item'>
+            <view class='clearfix'>
+                <text class='left'>数量</text>
+                <text class='right'>共{{goodsNum}}件</text>
+            </view>
+            <view class='clearfix'>
+                <text class='left'>商品金额</text>
+                <text class='right red'>￥{{goodsPrice}}</text>
+            </view>
+            <view class='clearfix'>
+                <text class='left'>运费</text>
+                <text class='right red'>￥{{orderFreight}}</text>
+            </view>
+        </view>
+        <view class='totalPrice item'>
+            <view class='clearfix'>
+                <text class='left'>优惠券</text>
+                <text class='right'>></text>
+            </view>
+            <view class='clearfix'>
+                <text class='left'>合计</text>
+                <text class='right red'>￥{{totalPrice}}</text>
+            </view>
+        </view>
+        <view class='telphone item'>
+            <view class='rowInput'>
+                <input id='phone' bindinput='getPhone' placeholder='请输入手机号' value='{{userPhone}}'></input>
+            </view>
+            <view class='btn' bindtap='getAdminCode'>获取验证码</view>
+            <view class='rowInput'>
+                <input id='email' bindinput='getCode' placeholder='输入验证码' value='{{userCode}}'></input>
+            </view>
+        </view>
+    </scroll-view>
+
+    <view class='item' id='submit' bindtap='submitOrder'>
+        确认订单
+    </view>
+</view>

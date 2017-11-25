@@ -1,0 +1,337 @@
+/* pages/product/product.wxss */
+
+page {
+    height: 100%;
+    color: #333;
+}
+
+.container {
+    background: #eee;
+    height: 100%;
+    position: relative;
+}
+
+view {
+    background: #fff;
+}
+
+.main {
+    height: 90%;
+}
+
+/* banner */
+
+#bannerBox {
+    height: 600rpx;
+}
+
+#bannerBox image {
+    width: 100%;
+}
+
+/* 标题、信息、描述 */
+
+.note {
+    padding: 30rpx 30rpx 15rpx;
+    line-height: 40rpx;
+    color: #111;
+}
+
+.numInfo {
+    padding: 0 30rpx 20rpx;
+    text-align: center;
+    font-size: 25rpx;
+}
+
+.price {
+    color: red;
+    font-size: 30rpx;
+}
+
+.desc {
+    padding: 0 30rpx 20rpx;
+    font-size: 30rpx;
+    color: #888;
+    line-height: 40rpx;
+}
+
+/* 拼团信息 */
+
+.groups {
+    margin-top: 20rpx;
+    padding: 20rpx 0;
+}
+
+.groups .title {
+     font-size: 30rpx;
+    line-height: 60rpx;
+    border-bottom: 1px solid #ddd;
+    padding: 0 30rpx 20rpx;
+}
+.groups .title .right{
+    font-size: 25rpx;
+}
+.group {
+    padding: 30rpx 30rpx;
+    border-bottom: 1px solid #efefef;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+.group .info {
+    box-sizing: border-box;
+    padding-left: 15rpx;
+    width: 60%;
+    height: 120rpx;
+    display: inline-block;
+    line-height: 60rpx;
+}
+.group .info view{
+    overflow: hidden;
+    height: 50%;
+}
+.group .info .col999 {
+    font-size: 30rpx;
+}
+.group .right{
+    background: #fff;
+    border: 1px solid #325596;
+    color: #325596;
+    height: 60rpx;
+    box-sizing: border-box;
+    padding: 10rpx 20rpx;
+    text-align: center;
+    border-radius: 10rpx;
+    font-size: 30rpx;
+    position: relative;
+    top: 50%;
+    margin-top: 30rpx;
+}
+
+.headImg {
+    vertical-align: middle;
+    display: inline-block;
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 50%;
+}
+
+/* 商品详情 */
+.infoImgs{
+    margin-top: 20rpx;
+}
+.infoImgs .title{
+    padding: 30rpx;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10rpx;
+}
+.infoImgs image {
+    width: 100%;
+    display: block;
+}
+
+/* 底部按钮 */
+
+.bottom {
+    height: 10%;
+    vertical-align: middle;
+     padding-left:40rpx; 
+}
+
+.item {
+    height: 100%;
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
+    vertical-align: middle;
+    flex-wrap: nowrap;
+}
+.item image {
+    display:block;
+    width: 60rpx;
+    height: 60rpx;
+    margin-top:30rpx;
+    top: 50%;
+}
+.bottom .button {
+    width:33%;
+    background-color: #325596;
+    font-size: 30rpx;
+    height: 100%;
+    margin-left: 3rpx;
+    display: inline-block;
+    line-height: 50rpx;
+    text-align: center;
+    padding: 10rpx 30rpx;
+    box-sizing: border-box;
+}
+
+.bottom .button text {
+    display: block;
+    color: #fff;
+}
+
+/* 属性选择框 */
+#buyBox{
+    width: 100%;
+    background: #fff;
+    z-index: 2000;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    font-size: 30rpx;
+    border-top: 1px solid #ddd;
+    
+}
+#buyBox .active{
+    background: #325596 !important;
+    color: #fff !important;
+}
+
+#buyBox image{
+    width: 150rpx;
+    height: 150rpx;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+}
+#buyBox .title{
+    vertical-align: middle;
+    padding: 30rpx;
+    position: relative;
+}
+#buyBox .close{
+    position: absolute;
+    right: 50rpx;
+    top:50rpx;
+    border: 1px solid #ddd;
+    width: 40rpx;
+    height: 40rpx;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 35rpx;
+    color: #ddd;
+}
+#buyBox .info{
+    display: inline-block;
+    margin-left: 30rpx;
+    height:150rpx;
+    padding: 25rpx 0;
+    vertical-align: middle;
+     line-height: 50rpx;
+}
+#buyBox .info view{
+    height: 50rpx;
+}
+#buyBox .close{
+    display: inline-block;
+}
+
+#buyBox .types{
+    padding: 30rpx;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+} 
+#buyBox .type text{
+    background: #efefef;
+    border-radius: 8rpx;
+    padding: 15rpx 60rpx;
+    font-size: 30rpx;
+    display: inline-block;
+    margin: 10rpx 30rpx;
+
+}
+#buyBox .types .attr{
+    margin-bottom: 20rpx;
+}
+
+/*加减数量 */
+#buyBox .numbers{
+    padding: 30rpx;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 100rpx
+}
+#buyBox .numbers view{
+    display: inline-block;
+    text-align: center;
+}
+#add,#sub,#number{
+    width: 50rpx;
+    height: 50rpx;
+    border: 1px solid #aaa;
+    line-height: 46rpx;
+    font-size: 40rpx;
+}
+#buyBox .disabled{
+    color: #ddd;
+}
+#number{ 
+    padding: 0 30rpx;
+    border-left: none;
+    border-right: none;
+}
+
+/* 购买按钮 */
+#buyBox .buyBtn{
+   display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+}
+#buyBox .buyBtn view{
+    width: 50%;
+    padding: 25rpx 0;
+    color: #fff;
+    text-align: center;
+    background: #325596;
+    box-sizing: border-box;
+}
+#buyBox .buyNow{
+    border-right:2rpx solid #fff;
+}
+#buyBox .addCart{
+    border-left:2rpx solid #fff;
+}
+#buyBox .goGroup{
+     padding: 25rpx 0;
+     color: #fff;
+    text-align: center;
+    background: #325596;
+    box-sizing: border-box;
+}
+/* 评论 */
+#comments{
+    margin: 20rpx 0;
+}
+#comments .title{
+    padding: 30rpx;
+    margin-bottom: 10rpx;
+}
+.comment{
+    border-top: 1px solid #ddd;
+    padding: 30rpx;
+}
+.comment  .headImg{
+    vertical-align: middle;
+    width: 150rpx;
+    height: 150rpx;
+}
+.comment  .userInfo{
+    height: 150rpx;
+    margin-left: 20rpx;
+}
+.comment .userName,.comment .stars{
+    height: 50%;
+    line-height: 75rpx;
+}
+.comment .stars image{
+    width: 30rpx;
+    height: 30rpx;
+}
+.comment  .right{
+    line-height: 150rpx;
+}
+.comment .content{
+    margin-top: 20rpx;
+    line-height: 45rpx;
+}

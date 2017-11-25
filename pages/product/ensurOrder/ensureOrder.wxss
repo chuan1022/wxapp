@@ -1,0 +1,111 @@
+/* pages/product/ensurOrder/ensureOrder.wxss */
+
+/* 整体布局 */
+
+page {
+    height: 100%;
+}
+
+.container {
+    height: 100%;
+    color: #666;
+    font-size: 30rpx;
+}
+
+#scrollView {
+    box-sizing: border-box;
+    height: 92%;
+}
+
+#submit {
+    box-sizing: border-box;
+    height: 8%;
+    margin-bottom: 0;
+    text-align: center;
+    background: #358;
+    color: #fff;
+    vertical-align: middle;
+}
+
+.item {
+    margin-bottom: 25rpx;
+    padding: 30rpx;
+    background: #fff;
+}
+
+/* 地址 */
+
+.address {
+
+}
+.addressInfo text{
+    line-height: 50rpx;
+    margin: 0 30rpx;
+}
+.address .addressName{
+     line-height: 50rpx;
+     margin: 0 30rpx;
+     max-height: 100rpx;
+     overflow: hidden;
+}
+/* 货物展示 */
+
+.goodsInfo {
+}
+
+.goodsInfo image {
+    width: 180rpx;  
+    height: 180rpx;
+    display: inline-block;
+    max-width: 25%;
+    border: 1px solid #ddd;
+    vertical-align: top;
+}
+
+.goodsInfo .info {
+    width: 73%;
+    display: inline-block;
+}
+
+.goodsInfo .info text {
+    display: block;
+    padding-left: 30rpx;
+    width: 100%;
+}
+
+.goodsInfo .text1 {
+    font-size: 30rpx;
+    line-height: 40rpx;
+    max-height: 80rpx;
+}
+
+.goodsInfo .text2 {
+    margin-top: 10rpx;
+    margin-bottom: 20rpx;
+}
+
+.goodsInfo .col999 {
+    font-size: 25rpx;
+}
+
+/* 数量展示 */
+
+.goodsPrice view {
+    padding: 15rpx 0;
+}
+
+/* 总价 */
+
+.totalPrice view {
+    padding: 15rpx 0;
+}
+.btn{
+    padding: 15rpx 10rpx;
+    background: #358;
+    color: #fff;
+    font-size: 25rpx;
+    width: 30%;
+    text-align: center;
+    border-radius: 8rpx;
+    margin: 20rpx 0 20rpx 30rpx;
+}

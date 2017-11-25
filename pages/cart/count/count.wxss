@@ -1,0 +1,23 @@
+/* pages/cart/count/count.wxss */
+.numbers{
+    display: inline-block;
+    background: #fff;
+}
+.numbers view{
+    display: inline-block;
+    text-align: center;
+}
+.add, .sub, .number{
+    height: 50rpx;
+     padding: 0 15rpx;
+    border: 1px solid #aaa;
+    line-height: 46rpx;
+    font-size: 40rpx;
+}
+.number{
+    border-left: none;
+    border-right: none;
+}
+.disabled{
+    color: #ddd;
+}
