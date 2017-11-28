@@ -1,2 +1,13 @@
 <!--pages/index/discount/discount.wxml-->
-<text>pages/index/discount/discount.wxml</text>
+<view class='container'>
+    <block wx:for="{{list}}" wx:key="">
+        <view class='item clearfix' data-id="{{item.id}}" bindtap='getCount'>
+            <view class="left itemLeft {{item.valid=='1'?'':'disabled'}}">
+                <text style='font-size:40rpx;'>￥</text>{{item.value}}</view>
+            <view class='left itemRight'>
+                <text>满{{item.condition}}可用</text>
+                <text style='font-size:25rpx;'>{{item.time}}</text>
+            </view>
+        </view>
+    </block>
+</view>

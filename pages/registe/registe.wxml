@@ -1,26 +1,29 @@
 <!--pages/regiister/registe.wxml-->
 <!--pages/login/login.wxml-->
 <view class='container'>
-    <view>
-        <text>Email</text>
-        <input id='email' placeholder='请输入账号' value='{{email}}'></input>
+<form bindsubmit="formSubmit">
+    <view class='rowInput'>
+        <label>Email</label>
+        <input name='email' placeholder='请输入邮箱' value='{{email}}' bindinput=''></input>
     </view>
-    <view>
-        <text>密码</text>
-        <input id='password' placeholder='请输入密码' value='{{password}}'></input>
+     <view class='rowInput'>
+        <label>密码</label>
+        <input name='password' placeholder='请输入密码' value='{{password}}'></input>
     </view>
-    <view>
-        <text>确认密码</text>
-        <input id='repassword' placeholder='确认密码' value='{{repassword}}'></input>
+     <view class='rowInput'>
+        <label>确认密码</label>
+        <input name='repassword' placeholder='确认密码' value='{{repassword}}'></input>
     </view>
-    <view>
-        <text>昵称</text>
-        <input id='nick' placeholder='昵称' value='{{username}}'></input>
+     <view class='rowInput'>
+        <label>昵称</label>
+        <input name='nick' placeholder='昵称' value='{{username}}'></input>
     </view>
-    <view>
-        <text>手机</text>
-        <input id='phone' placeholder='手机号码' value='{{telephone}}'></input>
+     <view class='rowInput'>
+        <label>手机</label>
+        <input name='phone' placeholder='手机号码' value='{{telephone}}'></input>
     </view>
-    <button bindtap='registe'>登陆</button>
-
+    <button  formType="submit" type='primary'  style='margin-top:30rpx;'>立即注册</button>
+    <button bindtap='login' type='default' style='margin-top:30rpx;'>已有账号,前往登陆</button>
+</form>
+    
 </view>

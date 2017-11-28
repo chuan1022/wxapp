@@ -1,1 +1,7 @@
-{}
+{
+    "navigationBarTitleText": "免单",
+    "backgroundColor": "#000",
+    "backgroundTextStyle": "light",
+    "onReachBottomDistance": 50,
+    "enablePullDownRefresh": true
+}

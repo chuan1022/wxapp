@@ -8,18 +8,17 @@ Page({
     data: {
 
     },
-
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        console.log(app.data.token)
+        var This=this;
         this.getCollectList(app.data.token);
-        app.getYouLikes({
-            success:function(data){
-                console.log(data)
-
-            }
+        app.getYouLikes(function(res){
+            console.log(res);
+            This.setData({
+                likeList:res.data.data.list
+            })
         });
     },
     //获取收藏列表
@@ -32,7 +31,6 @@ Page({
                 language:1
             },
             success:function(data){
-                console.log(data)
                 This.setData({
                     lists: data.data.data.list
                 });

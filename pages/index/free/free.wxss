@@ -1,1 +1,64 @@
 /* pages/index/free/free.wxss */
+page{
+    height: 100%;
+}
+.container{
+    height: 100%;
+}
+.rule{
+    width: 100%;
+    margin-bottom: 20rpx;
+}
+.product{
+    padding: 15rpx;
+    background: #fff;
+    margin-bottom: 15rpx;
+}
+.product image{
+    width: 25%;
+    vertical-align: top;
+}
+.product .info{
+    width: 70%;
+    padding-left: 20rpx;
+}
+.product .info .title{
+    max-height: 80rpx;
+    line-height: 40rpx;
+    overflow: hidden;
+}
+.ruleInfoBox{
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     z-index: 2005;
+}
+.ruleInfo{
+    padding: 20rpx;
+    margin: 0 auto;
+   margin-top: 200rpx;
+    width: 80%;
+    border-radius: 20rpx;
+    min-height: 50%;
+    background: #fff;
+}
+.changeShow view{
+    width: 50%;
+    box-sizing: border-box;
+    padding: 20rpx;
+    background: #358;
+    color: #fff;
+    margin-bottom: 25rpx;
+    text-align: center;
+}
+.changeShow .left{
+    border-right: 2rpx solid #fff;
+}
+.changeShow .right{
+    border-left: 2rpx solid #fff;
+}
+.changeShow .active{
+    background: #689;
+}

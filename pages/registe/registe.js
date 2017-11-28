@@ -6,29 +6,21 @@ Page({
      * 页面的初始数据
      */
     data: {
-        email:'',
-        password:'sdd',
-        username:'',
-        telephone :'',
-        repassword:'',
-        code:''
-        
+      
     },
-    registe:function(){
-        if (app.testEmail(this.data.email)) {
-            console.log(this.data.email,app.testEmail(this.data.email))
-            if (app.testRepeat(this.data.password,this.data.repassword)){
+  
+    formSubmit:function(ev){
+        console.log(ev);
+        this.setData({
+            options:ev.detail.value
+        });
+        if (app.testEmail(this.data.options.email)) {
+            if (app.testRepeat(this.data.options.password, this.data.options.repassword)){
                 wx.request({
                     url: 'http://www.amazonli.com/mijingapp/index.php/Login/register',
-                    data: {
-                        email: this.data.email,
-                        password: this.data.password,
-                        telephone:this.data.telephone,
-                        languag: app.data.language,
-                        code:'1234'
-                    },
-                    success: function (data) {
-                        console.log(data)
+                    data:this.data.options,
+                    success: function (res) {
+                        console.log(res)
                     }
                 })
             }else{

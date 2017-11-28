@@ -49,4 +49,12 @@
     text-align: center;
     background: #fff;
 }
-
+.likeImg{
+    width: 25rpx;
+    height: 25rpx;
+    vertical-align: middle;
+    margin: 0 30rpx;
+    border: 3rpx solid red;
+    padding: 10rpx;
+    border-radius: 50%;
+}

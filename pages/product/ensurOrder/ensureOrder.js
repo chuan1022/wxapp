@@ -93,7 +93,33 @@ Page({
             //空时
         }  
     },
-   
+   //分享好友
+   inviteFriend:function(){
+       var id = this.data.goodsInfo.split(':')[0];
+    
+        wx.request({
+            url: 'http://www.amazonli.com/mijingapp/index.php/Free/get_url',
+            data:{
+                token:app.data.token,
+                language:app.data.language,
+                address_id: this.data.addressId,
+                goods_id: id
+            },
+            success:function(res){
+                console.log(res);
+                wx.showModal({
+                    title: res.data.data.title,
+                    content: res.data.data.desc + ':'+res.data.data.url,
+                    showCancel: true,
+                    cancelText: '取消',
+                    confirmText: '确定',
+                    success: function(res) {},
+                    fail: function(res) {},
+                    complete: function(res) {},
+                })
+            }
+        })   
+   },
     // 提交订单
     submitOrder:function(){
         // *goods_id：货物id和数量的字符串 33:3; 22:2表示goods_id为33的3件，为22的两件

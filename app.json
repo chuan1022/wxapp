@@ -1,15 +1,15 @@
 {
     "pages": [
         "pages/my/my",
-        "pages/cart/cart",
         "pages/index/index",
+       
+        "pages/cart/cart",
         "pages/login/login",
         "pages/my/collect/collect",
         "pages/class/class",
         "pages/class/nav/nav",
         "pages/product/product",
         "pages/group/group",
-        "pages/index/components/product/product",
         "pages/registe/registe",
         "pages/my/editeInfo/editeInfo",
         "pages/my/contact/contact",

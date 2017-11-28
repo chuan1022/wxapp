@@ -13,7 +13,8 @@
             <text>{{detail.note}}</text>
         </view>
         <view class='numInfo clearfix'>
-            <text class='price left'>￥{{detail.price}}</text>
+            <text wx:if="{{orderType=='integral'}}" class='price left'>积分：{{detail.integral}}</text>
+            <text wx:else class='price left'>￥{{orderType=='flash'?detail.flash_price:detail.price}}</text>
             <text class='col999'>已拼{{detail.sold_sum}}件</text>
             <text class='col999' style="margin-left:30rpx">{{detail.people_count}}</text>
             <text class='right col999'>{{detail.goods_sum}}</text>
@@ -51,51 +52,25 @@
         <!-- 评价 -->
         <view id='comments'>
             <view class='title'>商品评价</view>
-            <view class='comment'>
-                <view class='info clearfix'>
-                    <image class='left headImg' src='../../images/userImg.png'></image>
-                    <view class='userInfo left'>
-                        <view class='userName'>useernmae</view>
-                        <view class='stars'>
-                            <image src='../../images/star1.png'></image>
-                            <image src='../../images/star1.png'></image>
-                            <image src='../../images/star1.png'></image>
-                            <image src='../../images/star1.png'></image>
-                            <image src='../../images/star1.png'></image>
-                        </view>
-                    </view>
-                    <text class='col999 right'>2017.10.11</text>
-                </view>
-                <view class='content col666'>商品很不错五星好评商品很不错五星好评商品很不错五星好评商品很不错五星好评商品很不错五星好评商品很不错五星好评</view>
-            </view>
-            <view class='comment'>
-                <view class='info clearfix'>
-                    <image class='left headImg' src='../../images/userImg.png'></image>
-                    <view class='userInfo left'>
-                        <view class='userName'>useernmae</view>
-                        <view class='stars'>
-                            <image src='../../images/star1.png'></image>
-                            <image src='../../images/star1.png'></image>
-                            <image src='../../images/star1.png'></image>
-                            <image src='../../images/star1.png'></image>
-                            <image src='../../images/star1.png'></image>
-                        </view>
-                    </view>
-                    <text class='col999 right'>2017.10.11</text>
-                </view>
-                <view class='content col666'>商品很不错五星好评商品很不错五星好评商品很不错五星好评商品很不错五星好评商品很不错五星好评商品很不错五星好评</view>
-            </view>
-            <block wx:for="{{detai.comments}}" wx:key="">
+            <block wx:for="{{detail.comments}}" wx:key="">
                 <view class='comment'>
-                    <view class='info'>
-                        <image src='{{item.pic}}'></image>
-                        <view>
-                            <text>{{comment.username}}</text>
-                            <text>{{comment.star}}</text>
+                    <view class='info clearfix'>
+                        <image class='left headImg' src='{{item.headimg}}'></image>
+                        <view class='userInfo left'>
+                            <text class='userName'>{{item.username}}</text>
+                            <view class='stars'>
+                                <!-- 循环生成小星 -->
+                                <block wx:for="{{item.star-5+5}}" wx:for-item="i" wx:key="">
+                                    <image src='../../images/star1.png'></image>
+                                </block>
+                                <block wx:for="{{5-item.star}}" wx:key="">
+                                    <image src='../../images/star2.png'></image>
+                                </block>
+                            </view>
                         </view>
-                        <text class='col999'>{{comment.time}}</text>
+                        <text class='col999 right'>{{item.create_time}}</text>
                     </view>
-                    <view>{{comment.note}}</view>
+                    <view class='content col666'>{{item.comment}}</view>
                 </view>
             </block>
         </view>
@@ -106,15 +81,35 @@
             <image bindtap='goHome' src='../../images/home.png'></image>
             <image data-productid="{{detail.id}}" data-id="{{favId}}" bindtap="doCollect" src='{{isCollect==1?collectImg:noCollectImg}}'></image>
         </view>
+        <block wx:if="{{orderType=='flash'}}">
+            <view class='button right' bindtap='flashBuy' style='width:66%'>
+                <text>￥{{detail.flash_price}}</text>
+                <text>立即抢购</text>
+            </view>
+        </block>
+        <block wx:elif="{{orderType=='free'}}">
+            <view class='button right' bindtap='freeBuy' style='width:66%'>
+                <text>￥0</text>
+                <text>马上分享</text>
+            </view>
+        </block>
+         <block wx:elif="{{orderType=='integral'}}">
+            <view class='button right' bindtap='freeBuy' style='width:66%'>
+                <text>积分：{{detail.integral}}</text>
+                <text>马上兑换</text>
+            </view>
+        </block>
+        <block wx:else>
+            <view class='button right' bindtap='groupBuy'>
+                <text>￥{{detail.group_price}}</text>
+                <text>一键拼单</text>
+            </view>
+            <view class='button right' bindtap='aloneBuy'>
+                <text>￥{{detail.price}}</text>
+                <text>单独购买</text>
+            </view>
+        </block>
 
-        <view class='button right' bindtap='groupBuy'>
-            <text>￥{{detail.group_price}}</text>
-            <text>一键拼单</text>
-        </view>
-        <view class='button right' bindtap='aloneBuy'>
-            <text>￥{{detail.price}}</text>
-            <text>单独购买</text>
-        </view>
     </view>
 
 
@@ -130,8 +125,12 @@
             <image src="{{isSelectGoods?goods.pic:detail.pic}}"></image>
             <view class='info'>
 
-                <!-- 已选货物时。选择货物价格；没选货物时判断显示团购价还是单独购买价  -->
-                <view class='price'>{{isGroupBuy?(isSelectGoods?goods.group_price:detail.group_price):(isSelectGoods?goods.price:detail.price)}}</view>
+                <!-- 先判断是不是抢购，是否显示抢购价；已选货物时。选择货物价格；没选货物时判断显示团购价还是单独购买价  -->
+                <view wx:if="{{orderType=='integral'}}" class='price'>积分{{detail.integral}}</view>
+                <view wx:elif="{{orderType=='flash'}}" class='price'>￥{{detail.flash_price}}</view>
+                 <view wx:elif="{{orderType=='group'}}" class='price'>￥{{isSelectGoods?goods.group_price:detail.group_price}}</view>
+                <view wx:else class='price'> ￥{{isSelectGoods?goods.price:detail.price}}</view>
+              
                 <view>已选择：{{goods.attribute}}</view>
             </view>
             <view class='close' bindtap='hiddeModal'>x</view>
@@ -142,7 +141,7 @@
             </view>
             <view class='type'>
                 <block wx:for="{{detail.goods}}" wx:key="">
-                    <text bindtap="selectGoods" data-index="{{index}}" class="{{goods.id==item.id?'active':''}}" >{{item.attribute}}</text>
+                    <text bindtap="selectGoods" data-index="{{index}}" class="{{goods.id==item.id?'active':''}}">{{item.attribute}}</text>
                 </block>
             </view>
         </view>
@@ -153,11 +152,20 @@
             <view id='add' class="{{isAddDisable?'disabled':''}}" bindtap='add'>+</view>
         </view>
         <view>
-            <view wx:if="{{isGroupBuy}}">
-               <view class='goGroup' bindtap='goGroupBuy'>加入拼单</view>
+            <view wx:if="{{orderType=='group'}}">
+                <view class='goGroup' bindtap='goGroupBuy'>加入拼单</view>
             </view>
-            <view wx:else="{{isGroupBuy}}" class='buyBtn'>
-                 <view class='buyNow' bindtap='buyNow'>直接购买</view>
+            <view wx:elif="{{orderType=='flash'}}">
+                 <view class='goGroup' bindtap='goFlashBuy'>立即抢购</view>
+            </view>
+            <view wx:elif="{{orderType=='free'}}">
+                 <view class='goGroup' bindtap='goFreeBuy'>马上分享</view>
+            </view>
+             <view wx:elif="{{orderType=='integral'}}">
+                 <view class='goGroup' bindtap='goIntegralBuy'>马上兑换</view>
+            </view>
+            <view wx:else class='buyBtn'>
+                <view class='buyNow' bindtap='buyNow'>直接购买</view>
                 <view class='addCart' bindtap='addCart'>加入购物车</view>
             </view>
         </view>

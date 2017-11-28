@@ -10,5 +10,5 @@
             <view class='answer' wx:if="{{item.id==showId}}"> {{item.answer}} </view>
         </block>
     </view>
-
 </view>
+  

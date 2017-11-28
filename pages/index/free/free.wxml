@@ -1,2 +1,56 @@
 <!--pages/index/free/free.wxml-->
-<text>pages/index/free/free.wxml</text>
+<view class='container'>
+    <image class='rule' src='../../../images/rule1.jpg' mode='widthFix' bindtap='showRule'></image>
+    <view class='changeShow clearfix'>
+        <view bindtap='getFree' class="left {{isShowMyFree?'':'active'}}">所有免单</view>
+        <view bindtap='myFree' class="right {{isShowMyFree?'active':''}}">我的免单</view>
+    </view>
+    <view class='products'>
+        <block wx:if="{{isShowMyFree}}">
+            <block wx:for="{{list}}" wx:key="">
+                <view class='product' bindtap='share' data-url="{{item.url}}" data-id="{{item.id}}">
+                    <image mode='widthFix' src='{{item.pic}}' bindtap='showRule'></image>
+                    <view class='info inlineBlock'>
+                        <view class='title'>{{item.pro_name}}</view>
+                        <view class='col358' style='margin:20rpx 0;'>
+                            <text class='red'>￥0</text>
+                            <text class='text25' style='margin-left:20rpx;'>还剩{{item.limit_time}}</text>
+                        </view>
+                        <view style='margin:15rpx 0;' class='clearfix text25'>
+                            <text class='col358'>需要{{item.free_limit_people}}人帮助/</text>
+                            <text class='col999'>还差{{item.limit_people}}人</text>
+                            <view class='btn right'>继续分享</view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </block>
+        <block wx:else>
+            <block wx:for="{{list}}" wx:key="">
+                <view class='product' bindtap='goProduct' data-id="{{item.id}}">
+                    <image mode='widthFix' src='{{item.pic}}' bindtap='showRule'></image>
+                    <view class='info inlineBlock'>
+                        <view class='title'>{{item.note}}</view>
+                        <view class='col358' style='margin:20rpx 0;'>
+                            <text class='red'>￥0</text>
+                            <text class='text25' style='margin-left:20rpx;'>还剩{{item.free_limit_time}}</text>
+                        </view>
+                        <view style='margin:15rpx 0;' class='clearfix text25'>
+                            <text class='col358'>需要{{item.free_limit_people}}人帮助</text>
+                            <view class='btn right'>马上分享</view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </block>
+
+    </view>
+    <view wx:if="{{isShowRule}}" id='screenShadow'></view>
+    <view wx:if="{{isShowRule}}" class='ruleInfoBox' capture-catch:tap='hiddeModal'>
+        <view class='ruleInfo'>
+            <view> 免单规则：</view>
+            <view>规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容规则内容</view>
+        </view>
+    </view>
+
+</view>

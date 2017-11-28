@@ -20,10 +20,11 @@ App({
         }
     },
     //登陆验证
-    checkToken:function(){
-        if(this.data.token==0){
+    checkToken:function(loginUrl){
+        if (this.data.token==0){
+            //登陆
             wx.navigateTo({
-                url: 'pages/login/login',
+                url: loginUrl,
             })
         }
     },
@@ -78,7 +79,7 @@ App({
 
     },
     //获取猜你喜欢
-    getYouLikes:function(){
+    getYouLikes:function(success){
         wx.request({
             url: 'http://www.amazonli.com/mijingapp/index.php/Product/guess',
             data:{
@@ -86,6 +87,9 @@ App({
                 language:this.data.language,
                 start:0,
                 number:10
+            },
+            success:function(res){
+                success(res);
             }
         })
     },
@@ -163,7 +167,7 @@ App({
     //读取本地存储
     getStorage: function () {
         var data = wx.getStorageSync('userInfo') || {};
-        this.data.token = data.token;
+        this.data.token = data.token||0;
         this.data.username = data.username;
         this.data.headimg = data.headimg;
         this.data.integral = data.integral;

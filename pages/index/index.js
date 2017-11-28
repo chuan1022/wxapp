@@ -117,7 +117,6 @@ Page({
             activeNum: -1
         });
     },
-
     //切换首页导航tab
     changeNav: function (e) {
         var This=this;

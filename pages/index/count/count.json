@@ -1,1 +1,6 @@
-{}
+{
+    "navigationBarTitleText": "积分兑换",
+    "backgroundColor": "#000",
+    "backgroundTextStyle": "light",
+    "onReachBottomDistance": 50
+}

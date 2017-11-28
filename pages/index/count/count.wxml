@@ -1,2 +1,25 @@
 <!--pages/index/count/count.wxml-->
-<text>pages/index/count/count.wxml</text>
+<view class='container'>
+    <scroll-view scroll-x id='nav' style='width:100%'>
+        <text class=" navList {{activeNum==-1?'active':''}}" data-id='{{pid}}' data-title="全部" bindtap='getAllProduct'>全部</text>
+        <block  wx:for="{{navs}}"  wx:for-item="nav" wx:key="">
+            <text class="navList {{activeNum==index?'active':''}}" data-index="{{index}}" data-id="{{nav.id}}" data-title="{{nav.note}}" bindtap='getNavId'>{{nav.note}}</text>
+        </block>
+    </scroll-view>
+    <scroll-view scroll-y id='products'>
+        <view id='productsBox'>
+            <block wx:for="{{products}}" wx:for-item="product" wx:key="">
+                <view class='product' data-id='{{product.id}}' bindtap='goProduct'>
+                    <image src='{{product.pic}}'></image>
+                    <view>
+                        <text class='title'>{{product.note}}</text>
+                    </view>
+                    <view class='clearfix'>
+                        <text class='left'>积分：{{product.integral}}</text>
+                        <text class='right col999'>已售{{product.sold_sum}}</text>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </scroll-view>
+</view>

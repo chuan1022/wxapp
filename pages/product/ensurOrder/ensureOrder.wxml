@@ -15,7 +15,7 @@
                 <view class='info'>
                     <text class='text1'>{{item.note}}</text>
                     <text class='text2 col999'>{{item.attribute}}x{{item.count}}</text>
-                    <text class='text3 red'>￥{{item.price}}</text>
+                    <text class='text3 red'>{{orderType==('integral'||'flash'||'free')?'积分:':'￥'}}{{item.price}}</text>
                 </view>
             </view>
         </block>
@@ -27,7 +27,7 @@
             </view>
             <view class='clearfix'>
                 <text class='left'>商品金额</text>
-                <text class='right red'>￥{{goodsPrice}}</text>
+                <text class='right red'>{{orderType=='integral'?'积分:':'￥'}}{{goodsPrice}}</text>
             </view>
             <view class='clearfix'>
                 <text class='left'>运费</text>
@@ -35,13 +35,13 @@
             </view>
         </view>
         <view class='totalPrice item'>
-            <view class='clearfix'>
+            <view wx:if="{{orderType=='buy'||orderType=='group'}}" class='clearfix'>
                 <text class='left'>优惠券</text>
                 <text class='right'>></text>
             </view>
             <view class='clearfix'>
                 <text class='left'>合计</text>
-                <text class='right red'>￥{{totalPrice}}</text>
+                <text class='right red'>{{orderType=='integral'?'积分:':'￥'}}{{totalPrice}}</text>
             </view>
         </view>
         <view class='telphone item'>
@@ -54,8 +54,8 @@
             </view>
         </view>
     </scroll-view>
-
-    <view class='item' id='submit' bindtap='submitOrder'>
+    <view  wx:if="{{orderType=='free'}}" class='item submit' bindtap='inviteFriend'>分享给好友</view>
+    <view wx:else class='item submit'  bindtap='submitOrder'>
         确认订单
     </view>
 </view>

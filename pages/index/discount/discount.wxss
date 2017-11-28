@@ -1,1 +1,35 @@
 /* pages/index/discount/discount.wxss */
+.item{
+    width: 90%;
+    margin: 20rpx auto;
+    text-align: center;
+    height: 150rpx;
+    border-radius: 15rpx;
+   
+}
+.itemLeft{
+    width: 40%;
+    color: #fff;
+    font-size: 80rpx;
+    background: red;
+    height: 100%;
+    padding: 20rpx 0;
+    line-height: 100rpx;
+    box-sizing: border-box;
+}
+
+.itemRight{
+    box-sizing: border-box;
+    height: 100%;
+    width: 60%;
+    color: #999;
+    background: #fff;
+    padding: 20rpx 0;
+}
+.itemRight text{
+    display: block;
+    line-height: 50rpx;
+}
+.disabled{
+    background: #ddd;
+}

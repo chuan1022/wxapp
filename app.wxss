@@ -32,7 +32,9 @@ page{
 .col666{
     color: #666;
 }
-
+.col358{
+    color: #358;
+}
 /* 产品list样式 */
 #productsBox{
     margin: 0 auto;
@@ -106,4 +108,20 @@ page{
     padding: 10rpx;
     text-align: center;
     color: #555;
+}
+
+/* 小按钮 */
+.btn{
+    display: inline-block;
+    padding: 10rpx 20rpx;
+    color: #fff;
+    background: #358;
+    border-radius: 10rpx;
+}   
+/* inline-block */
+.inlineBlock{
+    display: inline-block;
+}
+.text25{
+    font-size: 25rpx;
 }

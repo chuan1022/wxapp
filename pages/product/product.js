@@ -10,14 +10,14 @@ Page({
         noCollectImg: '../../images/collect1.png',
         animationData: {},
         isShowShadow: false,
-        isGroupBuy: true,
         //已选货物属性
         goodsImg: "../../images/bg.png",
         groupId: 0,      //已选拼单id
-        ordertype: '',   //下单类型
+        orderType: 'buy',   //下单类型
         isSubDisable: true,
         isAddDisable: false,
-        isSelectGoods: false        //判断是不是选了货物，只要选了一次货物就变为true
+        isSelectGoods: false,        //判断是不是选了货物，只要选了一次货物就变为true
+        goodsNum: 1
     },
 
     //跳转到订单页面
@@ -30,12 +30,13 @@ Page({
             goods.note = this.data.detail.note; //加入商品名
             var arry = [];        //作为数组传到订单页
             arry.push(goods);
-            var goodsInfo = goods.goodsId + ':' + goods.num;//拼goodsInfo
+
+            var goodsInfo = goods.id + ':' + goods.count;//拼goodsInfo
             var goodsPrice = (goods.count * goods.price).toFixed(2);//计算goodsPrice
 
             //传入货物信息
             wx.navigateTo({
-                url: 'ensurOrder/ensureOrder?products=' + JSON.stringify(arry) + '&&orderType=' + this.data.ordertype + '&&groupId=' + this.data.groupId + '&&goodsInfo=' + goodsInfo + '&&goodsPrice=' + goodsPrice + '',
+                url: 'ensurOrder/ensureOrder?products=' + JSON.stringify(arry) + '&&orderType=' + this.data.orderType + '&&groupId=' + this.data.groupId + '&&goodsInfo=' + goodsInfo + '&&goodsPrice=' + goodsPrice + '',
             })
         } else {
             wx.showToast({
@@ -44,25 +45,49 @@ Page({
             })
         }
     },
-    //点击单独购买--弹出单独购买框
-    aloneBuy: function () {
-        app.checkToken();
+
+    //点击立即分享--弹出分享框
+    freeBuy: function () {
+        app.checkToken('../login/login');
         this.setData({
-            isGroupBuy: false,
-            // isSelectGoods: false,
-            goodsPrice: this.data.detail.price,
-            goodsImg: "../../images/bg.png",
-            goodsId: '',
-            goodsNote: '',
-            goodsNum: 1,
+            goodsPrice: 0,  //分享价为0
         });
         this.showModal();
+    },
+    //点击积分兑换--弹出积分兑换框
+    freeBuy: function () {
+        app.checkToken('../login/login');
+        this.setData({
+            goodsPrice: this.data.detail.integral,  //价格为积分
+        });
+        this.showModal();
+    },
 
+    //点击立即抢购--弹出抢购框
+    flashBuy: function () {
+        app.checkToken('../login/login');
+        this.setData({ 
+            goodsPrice: this.data.detail.flash_price,
+        });
+        this.showModal();
+    },
+
+    //点击单独购买--弹出单独购买框
+    aloneBuy: function () {
+        app.checkToken('../login/login');
+        this.setData({
+            orderType: 'buy',
+            // isSelectGoods: false,
+            goodsPrice: this.data.detail.price,
+            // goodsId: '',
+            // goodsNote: ''
+        });
+        this.showModal();
     },
 
     //点击去拼单（拼别人的单）--弹出拼单购买框
     joinGroupBuy: function (ev) {
-        app.checkToken();
+        app.checkToken('../login/login');
         this.groupBuy();
         this.setData({
             groupId: ev.currentTarget.dataset.groupid
@@ -71,14 +96,10 @@ Page({
 
     //点击拼单购买--弹出拼单购买框
     groupBuy: function () {
-        app.checkToken();
+        app.checkToken('../login/login');
         this.setData({
-            isGroupBuy: true,
-            // isSelectGoods: false,
-            goodsPrice: this.data.detail.group_price,
-            goodsImg: "../../images/bg.png",
-            goodsNote: '',
-            goodsNum: 1,
+            orderType: 'group',
+            goodsPrice: this.data.detail.group_price
         });
         this.showModal();
     },
@@ -86,15 +107,33 @@ Page({
     //点击拼单购买--前往订单确认页
     goGroupBuy: function () {
         this.setData({
-            ordertype: 'group',     //下单类型设为拼团
             groupId: 0
+        });
+        this.goEnsureOrder();
+    },
+    //点击立即抢购--前往订单确认页
+    goFlashBuy: function () {
+        this.goEnsureOrder();
+    },
+
+    //点击马上分享--前往订单确认页
+    goFreeBuy: function () {
+        this.goEnsureOrder();
+    },
+    //点击积分兑换--前往订单确认页
+    goIntegralBuy: function () {
+        this.goEnsureOrder();
+    },
+    //点击直接购买--前往订单确认页
+    buyNow: function (ev) {
+        this.setData({
+            orderType: 'buy'     //下单类型设为直接购买
         });
         this.goEnsureOrder();
     },
 
     //加入购物车
     addCart: function () {
-        console.log(1);
         var This = this;
         wx.request({
             url: 'http://www.amazonli.com/mijingapp/index.php/Cart/add',
@@ -105,7 +144,6 @@ Page({
                 count: this.data.goodsNum
             },
             success: function (res) {
-                console.log(res);
                 if (res.data.errCode == 1) {
                     wx.showToast({
                         title: res.data.errMsg,
@@ -116,13 +154,6 @@ Page({
         })
     },
 
-    //点击直接购买--前往订单确认页
-    buyNow: function (ev) {
-        this.setData({
-            ordertype: 'buy'     //下单类型设为直接购买
-        });
-        this.goEnsureOrder();
-    },
 
 
 
@@ -134,10 +165,18 @@ Page({
         // options接受上级页面的传值
         var This = this;
         this.setData({
-            id: options.id
+            id: options.id,
+            orderType: options.orderType || ''
         });
-        this.getInfo();
 
+        if (this.data.orderType == 'free' || this.data.orderType =='flash') {
+            this.setData({
+                isSubDisable: true,
+                isAddDisable: true,
+            });
+        }
+        this.getInfo();
+        // console.log(this.data)
         // 设置banner高度等于宽度
         // wx.getSystemInfo({   
         //     success: function (data) {
@@ -161,7 +200,7 @@ Page({
             success: function (data) {
                 if (data.data.errCode == 1) {
                     var detail = data.data.data.detail;
-                    console.log(detail)
+                    // console.log(detail)
                     This.setData({
                         detail: detail,
                         isCollect: detail.is_fav,
@@ -182,7 +221,7 @@ Page({
     },
     //更改货物数量
     sub: function () {
-        if (this.data.goodsNum > 1) {
+        if (!this.data.isSubDisable) {
             this.setData({
                 goodsNum: this.data.goodsNum - 1
             });
@@ -192,14 +231,14 @@ Page({
                 });
             }
         }
-
     },
     add: function () {
-        this.setData({
-            goodsNum: this.data.goodsNum + 1,
-            isSubDisable: false
-        })
-
+        if (!this.data.isAddDisable) {
+            this.setData({
+                goodsNum: this.data.goodsNum + 1,
+                isSubDisable: false
+            })
+        }
     },
     /**
       * 生命周期函数--监听页面显示

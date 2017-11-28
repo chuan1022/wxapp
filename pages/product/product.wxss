@@ -327,6 +327,7 @@ view {
 .comment .stars image{
     width: 30rpx;
     height: 30rpx;
+     margin-right: 10rpx;
 }
 .comment  .right{
     line-height: 150rpx;

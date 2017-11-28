@@ -19,38 +19,19 @@
         </block>
     </view>
     <view class='likeTitle'>
+        <image class='likeImg' src="../../../images/collect1-2.png"></image>
         <text>猜你喜欢</text>
     </view>
     <view id='products'>
         <view id='productsBox'>
-            <view class='product' id='{{product.id}}' bindtap='goProduct'>
-                <image src='{{product.pic}}'></image>
-                <view>
-                    <text class='title col666'>11111112</text>
-                </view>
-                <view class='clearfix'>
-                    <text class='left'>￥11111</text>
-                    <text class='right col999'>已售222</text>
-                </view>
-            </view>
-            <view class='product' id='{{product.id}}' bindtap='goProduct'>
-                <image src='{{product.pic}}'></image>
-                <view>
-                    <text class='title col666'>11111112</text>
-                </view>
-                <view class='clearfix'>
-                    <text class='left'>￥11111</text>
-                    <text class='right col999'>已售222</text>
-                </view>
-            </view>
-            <block wx:for="{{products}}" wx:for-item="product" wx:key="">
-                <view class='product' id='{{product.id}}' bindtap='goProduct'>
+            <block wx:for="{{likeList}}" wx:for-item="product" wx:key="">
+                <view class='product' data-id='{{product.id}}' bindtap='goProduct'>
                     <image src='{{product.pic}}'></image>
                     <view>
-                        <text class='title col666'>{{product.pro_name}}</text>
+                        <text class='title col666'>{{product.note}}</text>
                     </view>
                     <view class='clearfix'>
-                        <text class='left'>￥{{product.price}}</text>
+                        <text class='left'>￥{{product.group_price}}</text>
                         <text class='right col999'>已售{{product.sold_sum}}</text>
                     </view>
                 </view>

@@ -1,2 +1,24 @@
 <!--pages/index/flash/flash.wxml-->
-<text>pages/index/flash/flash.wxml</text>
+<view class='container'>
+    <block wx:for="{{list}}" wx:key="">
+        <view class='list'>
+            <image mode='widthFix' src='{{item.pic}}'></image>
+            <view class='info' bindtap='goProduct' data-id="{{item.id}}">
+                <view style='margin:8rpx 0' class='title'>{{item.note}}</view>
+                <view class='col358' style='margin:8rpx 0'>{{item.flash_end_time}}结束</view>
+                <view style='margin:8rpx 0'>
+                    <view class='progress'>进度条</view>
+                    <text  class='col358'>已抢100件</text>
+                </view>
+                <view class='clearfix' style='margin:8rpx 0'>
+                    <text class='red' style='margin-right:20rpx;'>￥{{item.flash_price}}</text>
+                    <text class='col999'>￥{{item.group_price}}</text>
+                    <navigator
+                    class='btn right'
+                    url='../../product/product?id={{item.id}}'
+                    open-type='navigate'>去抢购</navigator>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>
