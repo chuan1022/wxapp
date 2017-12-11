@@ -138,50 +138,31 @@ Page({
         console.log(options);
         app.submitOrder(options,function(res){
             console.log(res);
-            // wx.showModal({
-            //     title: '',
-            //     content: '订单创建成功',
-            //     cancelText: '返回首页',
-            //     confirmText: '查看订单',
-            //     success: function (res) {
-            //         if (res.confirm) {
-            //             //点击了查看订单
-            //             wx.reLaunch({
-            //                 url: '../../my/my?seeOrders=1',
-            //             });
-            //         } else {
-            //             //点击返回首页
-            //             wx.reLaunch({
-            //                 url: '../../index/index',
-            //             });
-            //         }
-            //     }
-            // });
             if (res.data.errCode == 0) {
                 wx.showToast({
                     title: res.data.errMsg,
                 });
             } else {
-                wx.showModal({
-                    title: '',
-                    content: '订单创建成功',
-                    cancelText: '返回首页',
-                    confirmText: '查看订单',
-                    success: function (res) {
-                        console.log(res);
-                        if (res.confirm) { 
-                            //点击了查看订单
-                            wx.reLaunch({
-                                url: '../../my/my?seeOrders=1',
-                            });
-                        } else {
-                            //点击返回首页
-                            wx.reLaunch({
-                                url: '../../index/index',
-                            });
-                        }
-                    }
-                });
+                // wx.showModal({
+                //     title: '',
+                //     content: '订单创建成功',
+                //     cancelText: '返回首页',
+                //     confirmText: '查看订单',
+                //     success: function (res) {
+                //         console.log(res);
+                //         // if (res.confirm) { 
+                //         //     //点击了查看订单
+                //         //     wx.reLaunch({
+                //         //         url: '../../my/my?seeOrders=1',
+                //         //     });
+                //         // } else {
+                //         //     //点击返回首页
+                //         //     wx.reLaunch({
+                //         //         url: '../../index/index',
+                //         //     });
+                //         // }
+                //     }
+                // });
             }
         });
     },

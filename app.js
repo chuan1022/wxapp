@@ -57,7 +57,7 @@ App({
     //提交订单
     submitOrder:function(options,success){
         wx.request({
-            url: 'http://www.amazonli.com/mijingapp/index.php/Order/add',
+            url: 'http://www.amazonli.com/mijingappbeta/index.php/Order/add',
             data:options,
             success:function(res){
                 success(res);
@@ -68,7 +68,7 @@ App({
     //获取后台验证码
     getAdminCode:function(phone,success){
         wx.request({
-            url: 'http://www.amazonli.com/mijingapp/index.php/Verify/phone_code',
+            url: 'http://www.amazonli.com/mijingappbeta/index.php/Verify/phone_code',
             data:{
                 phone:phone
             },
@@ -81,7 +81,7 @@ App({
     //获取猜你喜欢
     getYouLikes:function(success){
         wx.request({
-            url: 'http://www.amazonli.com/mijingapp/index.php/Product/guess',
+            url: 'http://www.amazonli.com/mijingappbeta/index.php/Product/guess',
             data:{
                 data_type:1,
                 language:this.data.language,
@@ -96,7 +96,7 @@ App({
     //获取用户地址
     getAddress:function(success){
         wx.request({
-            url: 'http://www.amazonli.com/mijingapp/index.php/Address/index',
+            url: 'http://www.amazonli.com/mijingappbeta/index.php/Address/index',
             data:{
                 token:this.data.token,
             },
@@ -120,7 +120,7 @@ App({
     // 收藏商品
     addCollect:function(id,token,success){
         wx.request({
-            url: 'http://www.amazonli.com/mijingapp/index.php/Favorite/add',
+            url: 'http://www.amazonli.com/mijingappbeta/index.php/Favorite/add',
             data:{
                 product_id:id,
                 token:token,
@@ -134,7 +134,7 @@ App({
     //删除收藏
     delCollect: function (id, token, success){
         wx.request({
-            url: 'http://www.amazonli.com/mijingapp/index.php/Favorite/delete',
+            url: 'http://www.amazonli.com/mijingappbeta/index.php/Favorite/delete',
             data: { 
                 id: id,
                 token: token,
@@ -150,7 +150,7 @@ App({
     //获取积分
     getIntegral:function(success){
         wx.request({
-            url: 'http://www.amazonli.com/mijingapp/index.php/User/my_integral',
+            url: 'http://www.amazonli.com/mijingappbeta/index.php/User/my_integral',
             data:{
                 token:this.data.token
             },
